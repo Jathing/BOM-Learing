@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>点名</title>
+  <style>
+    .name-list {
+      width: 800px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+      display: block;
+      width: 100px;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="name-list">
+    <button>随机点名</button>
+    <img src="./images/caoqinmo.jpg" alt="">
+    <p></p>
+  </div>
+  <script>
+    var btn = document.getElementsByTagName('button')[0]
+    var imgEle = document.getElementsByTagName('img')[0]
+    var pEle = document.createElement('p')
+
+
+    var nameArr = ['caoqinmo', 'huanbi', 'ldh', 'liuzhu', 'shenmeizhuang', 'songzhi', 'wula', 'zhenhuan', 'zxy']
+
+    var timer = null
+    //点击按钮一直随机点名 再次点击停止
+    btn.onclick = () => {
+      if (!timer) {
+        timer = setInterval(() => {
+          var index = Math.floor(Math.random() * nameArr.length)
+          imgEle.src = `./images/${nameArr[index]}.jpg`
+          //改变p标签的内容
+          pEle.textContent = nameArr[index]
+          //把p标签插入到img标签之后
+          imgEle.after(pEle)
+        }, 100)
+      } else {
+        clearInterval(timer)
+        timer = null
+      }
+    }
+
+  </script>
+</body>
+
+</html>

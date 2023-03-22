@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .tip-bar {
+      height: 30px;
+      /* width: 200px; */
+      background-color: #7f7f7f;
+      border-radius: 15px;
+      line-height: 30px;
+      display: inline-flex;
+    }
+
+    .tip-bar img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .tip-bar span {
+      font-size: 12px;
+      color: #fff;
+      margin: 0px 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tip-bar">
+    <img src="https://bfs.biyao.com/group1/M01/A6/97/rBACYWBCHqyAFH5tAAANZXX5Eww646.png" alt="" />
+    <span>旺财对这件商品很感兴趣</span>
+  </div>
+  <script>
+    let tipList = [
+      {
+        icon: 'https://bfs.biyao.com/group1/M01/A6/97/rBACYWBCHqyAFH5tAAANZXX5Eww646.png',
+        title: '旺财对这件商品感兴趣',
+      },
+      {
+        icon: 'https://bfs.biyao.com/group1/M01/A2/67/rBACVGA_iOuAYaTxAAAPbted3yE165.png',
+        title: '123***814对这件商品感兴趣',
+      },
+      {
+        icon: 'https://bfs.biyao.com/group1/M00/7F/4E/rBACYV16HseAP-PnAAAW9bbVoKE463.png',
+        title: '小强对这件商品感兴趣',
+      },
+    ];
+
+    var tipBar = document.getElementsByClassName('tip-bar')[0];
+    var img = document.querySelector('img');
+    var span = document.querySelector('span');
+    var index = 1;
+    //循环定时器
+    setInterval(() => {
+      var tipItem = tipList[index];
+
+      img.src = tipItem.icon;
+      span.textContent = tipItem.title;
+      index++
+
+      if (index == tipList.length) {
+        index = 0
+      }
+    }, 2000);
+  </script>
+</body>
+
+</html>

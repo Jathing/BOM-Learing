@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock{
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background-image: url(./image/images/clock.jpg);
+            position: relative;
+        }
+        .hour,.minute,.second{
+            width: 30px;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            margin-left: -15px;
+        }
+        .hour{
+            /* background-color: red; */
+            background: url(./image/images/hour.png);
+        }
+        .minute{
+            /* background-color: green; */
+            background: url(./image/images/minute.png);
+        }
+        .second{
+            /* background-color: yellow; */
+            background: url(./image/images/second.png);
+            /* transform: rotate(); */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+    
+    <script>
+        var hour = document.getElementsByClassName('hour')[0];
+        var minute = document.getElementsByClassName('minute')[0];
+        var second = document.getElementsByClassName('second')[0];
+
+        // 每一秒变化一次，需要写循环定时器，每一秒执行一次定时器
+        
+        // 初始化变量
+        var currentDate = null; //当前时间
+        var hour_val = 0;
+        var minute_val = 0;
+        var sec_val = 0;
+        setInterval(function(){
+            // console.log(11);
+            // 获取当前时间
+            currentDate = new Date();
+            console.log(currentDate);
+
+            // 15:35:42
+            // 一大格是30deg  一小格是6deg
+            // 获取秒
+            sec_val = currentDate.getSeconds();
+            console.log(sec_val);
+            // 一大圈是360deg 一小格是6deg  如：42秒是42格  
+            second.style.transform = `rotate(${sec_val * 6}deg)`;
+
+            // 获取分
+            // 秒针走一圈 分针走一格  一秒是60分之1钟  秒针往前走的时候分针同时往前走
+            minute_val = currentDate.getMinutes() + sec_val / 60;
+            console.log(minute_val);
+            minute.style.transform = `rotate(${minute_val * 6}deg)`;
+            
+            // 获取时 分针走的时候时针同时走 30走一大格
+            hour_val = currentDate.getHours() + minute_val / 60;
+            hour.style.transform = `rotate(${hour_val * 30}deg)`;
+
+        },1000)
+       
+    </script>
+</body>
+</html>

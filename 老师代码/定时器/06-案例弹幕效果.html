@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="words">
+    <input type="button" value="Go" id="btn">
+    <script>
+        // 获取按钮
+        var btn = document.getElementById('btn');
+        var words = document.getElementById('words');
+        // 点击事件
+        btn.onclick = function(){
+            // 创建节点
+            var spanEle = document.createElement('span');
+            // 把输入框中的内容赋值给了新元素的内容
+            spanEle.textContent = words.value;
+            console.log(spanEle);
+
+            words.value = "";
+
+            // 挂载元素
+            document.body.prepend(spanEle);
+
+            // 元素定位
+            spanEle.style.position = 'absolute';
+            // 定位在屏幕之外
+            // spanEle.style.left = 100 + 'vw';
+            spanEle.style.left = document.documentElement.clientWidth + 'px';
+            console.log(spanEle.style.left);
+            // Math.random() 0 - 1的随机数 不包含1
+            spanEle.style.top = Math.floor(Math.random()*document.documentElement.clientHeight) + 'px'
+            
+            // 不换行
+            spanEle.style.whiteSpace = 'nowrap';
+
+            // 创建定时器
+            var timer =  setInterval(function(){
+                spanEle.style.left = parseInt(spanEle.style.left) - 10 +'px';
+                if(parseInt(spanEle.style.left) < -spanEle.clientWidth){
+                    clearInterval(timer)
+                }
+            },20)
+        }
+       
+    </script>
+</body>
+</html>

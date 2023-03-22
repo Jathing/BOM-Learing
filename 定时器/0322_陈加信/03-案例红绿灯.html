@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box"></div>
+    <script>
+      // 页面上有一个圆,红绿灯的时候各执行15秒,黄灯执行3秒
+      // 需求: 起初为绿灯,执行15秒切换成黄灯,黄灯执行3秒切换成红灯
+
+      // 获取元素
+      var box = document.getElementById('box');
+
+      // 记录当前的颜色
+      var color = 'green';
+      // 记录当前的时间
+      var time = 15;
+      setInterval(() => {
+        // 判断当前的颜色和时间
+        if (color == 'green' && time == 0) {
+          color = 'yellow';
+          time = 3;
+        } else if (color == 'yellow' && time == 0) {
+          color = 'red';
+          time = 15;
+        } else if (color == 'red' && time == 0) {
+          color = 'green';
+          time = 15;
+        }
+        // 修改颜色
+        box.style.backgroundColor = color;
+        // 修改时间
+        time--;
+        console.log(time);
+      }, 1000);
+    </script>
+  </body>
+</html>

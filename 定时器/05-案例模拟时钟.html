@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .clock {
+      width: 600px;
+      height: 600px;
+      margin: 100px auto;
+      background-image: url(./images/clock.jpg);
+      position: relative;
+    }
+
+    .hour,
+    .minute,
+    .second {
+      width: 30px;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      margin-left: -15px;
+    }
+
+    .hour {
+      background-image: url(./images/hour.png);
+    }
+
+    .minute {
+      background-image: url(./images/minute.png);
+    }
+
+    .second {
+      background-image: url(./images/second.png);
+
+      /* transition: 1s linear; */
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="clock">
+    <div class="hour"></div>
+    <div class='minute'></div>
+    <div class='second'></div>
+
+  </div>
+
+  <script>
+    var hour = document.getElementsByClassName('hour')[0]
+    var minute = document.getElementsByClassName('minute')[0]
+    var second = document.getElementsByClassName('second')[0]
+
+    //没一秒变化一次,需要写循环定时器,每一秒执行一次定时器
+
+    // 初始化变量
+    var currentDate = null
+    var hour_val = 0;
+    var min_val = 0;
+    var sec_val = 0;
+
+    setInterval(() => {
+      //获取当前时间
+      currentDate = new Date()
+      // console.log(currentDate)
+
+      sec_val = currentDate.getSeconds()
+      // console.log(sec_val)
+      second.style.transform = `rotate(${sec_val * 6}deg)`
+
+      min_val = currentDate.getMinutes() + sec_val / 60
+      console.log(min_val)
+      minute.style.transform = `rotate(${min_val * 6}deg)`
+
+      hour_val = currentDate.getHours() + min_val / 60
+      console.log(hour_val)
+      hour.style.transform = `rotate(${hour_val * 30}deg)`
+
+    }, 1000)
+
+
+  </script>
+</body>
+
+</html>

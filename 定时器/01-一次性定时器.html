@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button id="btn1">开始定时器</button>
+    <button id="btn2">结束定时器</button>
+    <script>
+      var btn1 = document.getElementById('btn1');
+      var btn2 = document.getElementById('btn2');
+
+      // 一次性定时器 只能执行一次
+      
+      // setTimeout(() => {
+      //   console.log(111);
+      // }, 2000);
+
+      //点击
+      var timer;
+      btn1.onclick = () => {
+        timer = setTimeout(() => {
+          console.log(111);
+        }, 2000);
+      };
+
+      // 取消定时器
+      // 点击取消的时候 定时器结束
+      btn2.onclick = () => {
+        clearTimeout(timer);
+      };
+    </script>
+  </body>
+</html>

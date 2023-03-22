@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            /* background-color: red; */
+        }
+    </style>
+</head>
+<body>
+    <div style="background: green;"></div>
+    <script>
+        // 页面上有一个圆，红绿灯的时候各执行15秒 黄灯执行3秒
+        // 需求：起初为绿灯，执行15秒切换成黄灯，黄灯执行3秒在切换成红灯
+        // 思路：循环定时器
+        var box = document.getElementsByTagName('div')[0];
+        var num = 0;
+        setInterval(function(){
+            num++
+            console.log(num);
+            if(num == 15 && box.style.background == 'green'){
+                num = 0;
+                box.style.background = 'yellow';
+            }else if(num == 3 && box.style.background == 'yellow'){
+                num = 0;
+                box.style.background = 'red';
+            }else if(num == 15 && box.style.background == 'red'){
+                num = 0;
+                box.style.background = 'green'
+            }
+        },1000)
+        
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tip-bar{
+            /* 被内容撑起来的宽度 */
+            display: inline-flex;
+            align-items: center;
+            height: 30px;
+            background-color: #7F7F7F;
+            border-radius: 15px;
+            /* line-height: 30px; */
+            /* width: 200px; */
+        }
+        .tip-bar img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .tip-bar span{
+            font-size: 12px;
+            color: #fff;
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="tip-bar">
+        <img src="https://bfs.biyao.com/group1/M01/A6/97/rBACYWBCHqyAFH5tAAANZXX5Eww646.png" alt="">
+        <span>旺财对这件商品很感兴趣</span>
+    </div>
+    
+    <script>
+     let tipList = [
+        {
+            icon: 'https://bfs.biyao.com/group1/M01/A6/97/rBACYWBCHqyAFH5tAAANZXX5Eww646.png',
+            title: '旺财对这件商品感兴趣'
+        },
+        {
+            icon: 'https://bfs.biyao.com/group1/M01/A2/67/rBACVGA_iOuAYaTxAAAPbted3yE165.png',
+            title: '123***814对这件商品感兴趣'
+        },
+        {
+            icon: 'https://bfs.biyao.com/group1/M00/7F/4E/rBACYV16HseAP-PnAAAW9bbVoKE463.png',
+            title: '小强对这件商品感兴趣'
+        }
+    ];
+
+    // 思路：循环定时器，每两秒更换一次数据
+    // 数组里面放的数据，当内容更换的时候，需要在数组里面拿新的数据
+
+    // 获取元素
+    var tipBar = document.getElementsByClassName('tip-bar')[0];
+    var img = document.querySelector('img');
+    var span = document.querySelector('span');
+    var index = 1;
+    // 循环定时器
+    setInterval(function(){
+        // 拿到每一项
+       var tipItem =  tipList[index];
+        // 对属性重新赋值
+       img.src = tipItem.icon;
+       span.textContent = tipItem.title
+       index++;
+       if(index == tipList.length){
+            index = 0;
+       }
+    },2000)
+       
+    </script>
+</body>
+</html>
