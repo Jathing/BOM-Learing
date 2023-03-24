@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="edit">修改history</button>
+    <button id="out">去其他页面</button>
+    <button id="go">go</button>
+    <button id="forward">forward</button>
+    <button id="back">back</button>
+    
+    <script>
+        // history对象允许我们访问浏览器曾经的会话历史记录
+        // 访问历史记录的条数
+        console.log(history.length);
+
+        var btnEle = document.querySelector('#edit');
+        var outEle = document.querySelector('#out');
+        var goEle = document.querySelector('#go');
+        var forwardEle = document.querySelector('#forward');
+        var backEle = document.querySelector('#back');
+
+        // 打开新页面
+        out.onclick = function(){
+            location.href = './041-out.html';
+        }
+
+        // 去到下一页   go(1) == forward()
+        // 回到上一页   go(-1) == back()  --out页面演示
+
+        // 去到下一页 可以传参数 到任意页
+        goEle.onclick = function(){
+            history.go(1)
+        }
+
+        // 去到下一页  只能到下一页
+        forwardEle.onclick = function(){
+            history.forward()
+        }
+
+        // 回到上一页
+        backEle.onclick = function(){
+            history.back()
+        }
+
+
+
+
+       
+    </script>
+</body>
+</html>

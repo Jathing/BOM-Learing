@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ 
+<body>
+    <!-- 添加
+        1.先把结构写出来
+        2.创建动态数据
+        3.使用字符串拼接的方式重新渲染tbody
+        4.添加studentAdd页面 
+        5.在新增页面中需要获取到input中的value值 点击button的时候放在sessionStroage，再跳转到list页面
+        6.获取到sessionStorage（一个学生的新值 newStu）
+        7.把数据通过push 的方式放在数组里面 渲染数据
+        8.为了保持数据的可持久化 我们需要把新的整个数组（stuArr）放在sessionStorage里面
+        9.判断sessionStorage是否有新的数组，如果有的话赋值给stuArr
+          为了下次在新数组基础上操作数据，如果没有就在原数组上做操作
+        10.重新渲染数据
+    -->
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>学号</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody class="content">
+            <tr>
+                <td>张三</td>
+                <td>19</td>
+                <td>001</td>
+                <td><span>删除</span> <span>编辑</span></td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>19</td>
+                <td>001</td>
+                <td><span>删除</span> <span>编辑</span></td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>19</td>
+                <td>001</td>
+                <td><span>删除</span> <span>编辑</span></td>
+            </tr>
+        </tbody>
+
+    </table>
+    <button class="addstu">添加学生</button>
+
+    <script>
+        // 获取元素
+        var tbody = document.getElementsByClassName('content')[0];
+        var addstu = document.getElementsByClassName('addstu')[0];
+
+        // 给添加按钮绑定点击事件
+        addstu.onclick = function(){
+            window.open('./studentAdd.html')
+        }
+
+        // 1.创建动态数据
+
+        // 判断仓库中是否有新数组，有新数组的话拿到新数组，在新数组的基础上做操作
+        var stuArr = [];
+        if(sessionStorage.getItem('stuArr')){
+            stuArr = JSON.parse(sessionStorage.getItem('stuArr'))
+        }else{
+            stuArr = [
+            { name: '张三三', age: '18', id: '001' },
+            { name: '李四四', age: '18', id: '001' },
+            { name: '王五', age: '18', id: '001' },
+            { name: '赵六', age: '18', id: '001' },
+        ]
+        }
+        
+
+        // 封装函数用于显示数据 *
+        function showDate(){
+            // 2.使用字符串拼接的方式渲染
+            var str = '';
+            for (var i = 0; i < stuArr.length; i++) {
+                // 把上面的直接复制下来，把静态数据改成动态数据，通过字符串的方式拼接
+                str += `<tr>
+                        <td>${stuArr[i].name}</td>
+                        <td>${stuArr[i].age}</td>
+                        <td>${stuArr[i].id}</td>
+                        <td>
+                            <span class="deleteStu">删除</span> <span class='update'>编辑</span>
+                        </td>
+                    </tr>`
+                    // console.log(str);
+
+                
+            }
+            // 把我们动态生成的数据挡在tbody里面重新渲染
+            tbody.innerHTML = str;
+            // 删除事件 原因：因为重新渲染之后 没有点击事件了 所以需要再次调用它进行循环绑定
+            ondelete();
+        }
+        
+        // 判断sessionStroage里面有没有值，如果有值的话放在数组里面 重新渲染数组
+        function isNew(){
+            if(sessionStorage.getItem('newStu')){
+                // console.log(111);
+                // 获取新值
+                // 由于数组需要的是对象格式，但是我们从sessionStorage获取的是JSON格式
+                // 通过 JSON.parse() 进行数据格式转换
+                var newStu = JSON.parse(sessionStorage.getItem('newStu')) ;
+                console.log(newStu);
+
+                // 拿到新数据放在数组里面
+                stuArr.push(newStu);
+                updateStorage();
+                // 清空仓库中的新的学生信息 （防止每次刷新检测到仓库里有数据渲染出来）
+                sessionStorage.removeItem('newStu')
+            }
+            // 重新渲染数据
+            showDate()
+        }
+        isNew()
+
+        // 更新sessionStorage里面的数据 添加一条 更新一条  删除一条更新一条
+        function updateStorage(){
+            console.log(stuArr);
+            sessionStorage.setItem('stuArr',JSON.stringify(stuArr))
+        }
+
+
+        // 删除信息-----------------------------------------------------------
+       function ondelete(){
+        var deleteBtn = document.getElementsByClassName('deleteStu');
+        // 循环绑定点击事件
+        for(let i = 0 ; i < deleteBtn.length;i++){
+            deleteBtn[i].onclick = function(){
+                console.log(i);
+                console.log(deleteBtn[i]);
+                // 截取数组 splice(i,1)   1 2 3 4  splice(2,1) 
+                stuArr.splice(i,1);
+
+                // 重新渲染数据
+                showDate();
+                // 更新仓库
+                updateStorage();
+
+                // 思考：删除一条之后，再次点击为什么无效？
+            }
+        }
+       }
+    //  ondelete()
+
+    // 编辑信息
+    function onupdate(){
+        var updateBtn = document.getElementsByClassName('update');
+        for(let i = 0;i<updateBtn.length;i++){
+            updateBtn[i].onclick = function(){
+                console.log(i);
+                // 把对应的行的index值放在仓库
+                sessionStorage.setItem('updateId',i);
+                // 跳转到编辑页面
+                location.replace('./studentUpdate.html');
+                // 将数组也放在的仓库里面 编辑的时候要用到
+                updateStorage()
+
+            }
+        }
+    }
+    onupdate()
+
+
+
+    </script>
+</body>
+
+</html>

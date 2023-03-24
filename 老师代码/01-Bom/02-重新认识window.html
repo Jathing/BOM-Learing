@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 视角一：全局对象  -->
+    <!-- 视角二：浏览器窗口对象，提供了浏览器操作相关的api -->
+
+    <!-- js运行环境 2个
+         1）浏览器 把js代码运行在浏览器上 全局对象是window
+         2）Node   node是一个运行环境    全局对象是global  在node中没有window
+         但是现在统一 globalThis
+    -->
+
+    <button class="open">百度一下</button>
+    <button class="close">关闭窗口</button>
+
+
+    
+    <script>
+        console.log(window);
+        console.log(globalThis);
+        console.log(window === globalThis);//true
+
+
+        // 获取按钮
+        var openEle = document.querySelector('.open')
+        var closeEle = document.querySelector('.close')
+        // 绑定点击事件
+
+        // 打开窗口
+        var win = null;
+        openEle.onclick = function(){
+            win = window.open('http://www.baidu.com')
+        }     
+        // 关闭窗口  
+        closeEle.onclick = function(){
+            win.close();
+        }  
+
+        // outerHeight是整个浏览器的高度
+        // innerHeight是窗口内容区的高度 不包含边框和菜单栏
+        console.log(window.outerHeight);
+        console.log(window.innerHeight);
+
+        // 获取焦点和失去焦点
+        window.onfocus = function(){
+            console.log('浏览器获取焦点');
+        }
+        window.onblur = function(){
+            console.log('浏览器失去焦点');
+        }
+    </script>
+</body>
+</html>

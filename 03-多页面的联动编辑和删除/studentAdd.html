@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 600px;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 添加学生页面 -->
+    <div class="box">
+      姓名:<input type="text" id="userName" /><br />
+      年龄:<input type="text" id="userAge" /><br />
+      学号:<input type="text" id="userId" /><br />
+      <button id="addstu">添加</button>
+    </div>
+
+    <script>
+      // 需求:点击跳转到新的页面 并且获取到添加的学生信息 (input中的value值)
+      // 解决: 先把input框中的值存储到localStorage中 然后跳转到列表页面
+
+      // 获取元素
+      var userName = document.getElementById('userName');
+      var userAge = document.getElementById('userAge');
+      var userId = document.getElementById('userId');
+      var addUser = document.getElementById('addstu');
+
+      // 绑定事件
+      addUser.onclick = () => {
+        // 如果input框中的值都有的话,则进if语句
+        if (userName.value && userAge.value && userId.value) {
+          // 存储在一个对象中,一个学生是一个对象,这个对象和学生信息对象的属性是一一对应的
+          var obj = {
+            name: userName.value.trim(),
+            age: userAge.value.trim(),
+            id: userId.value.trim(),
+          };
+          // 把对象存起来 存储到sessionStorage中
+          // JSON是对象的一个数据格式
+          // 但是sessionStorage只能存储字符串,所以我们需要把对象转换成字符串
+          // JSON.stringify() 把对象转换成字符串
+          // JSON.parse() 把字符串转换成对象
+          sessionStorage.setItem('newStu', JSON.stringify(obj));
+          // 跳转到学生信息表
+          window.open('./studentList.html');
+        } else {
+          alert('请填写完整信息');
+        }
+      };
+    </script>
+  </body>
+</html>

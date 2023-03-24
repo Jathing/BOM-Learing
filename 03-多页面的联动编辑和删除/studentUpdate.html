@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    
+
+    <!-- 修改学生信息界面 -->
+    <div class="box">
+      姓名:<input type="text" id="userName" /><br />
+      年龄:<input type="text" id="userAge" /><br />
+      学号:<input type="text" id="userId" /><br />
+      <button id="update">修改</button>
+    </div>
+    <script>
+      // 守卫
+      if (!sessionStorage.getItem('updateId')) {
+        location.replace('./studentList.html');
+      }
+
+
+
+      var userName = document.getElementById('userName');
+      var age = document.getElementById('userAge');
+      var idNum = document.getElementById('userId');
+      var update = document.getElementById('update');
+
+      // 获取到仓库的索引
+      var index = sessionStorage.getItem('updateId');
+      var stuArr = JSON.parse(sessionStorage.getItem('stuArr'));
+
+      // 数据的回显
+      userName.value = stuArr[index].name;
+      age.value = stuArr[index].age;
+      idNum.value = stuArr[index].id;
+
+      // 修改学生信息
+      update.onclick = function () {
+        // 获取到修改后的学生信息
+        var obj = {
+          name: userName.value.trim(),
+          age: age.value.trim(),
+          id: idNum.value.trim(),
+        };
+        // 修改数组中的数据
+        stuArr[index] = obj;
+        // 把修改后的数组存储到仓库中
+        sessionStorage.setItem('stuArr', JSON.stringify(stuArr));
+        // 跳转到学生信息表
+        location.replace('./studentList.html');
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 800px;
+        margin: 40px auto;
+        text-align: center;
+        display: flex;
+      }
+
+      table {
+        width: 600px;
+        /* height: 400px; */
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      caption {
+        margin-bottom: 20px;
+        color: #000;
+        text-shadow: -1px -1px 0px white, 1px 1px 0px #ccc;
+        /* text-shadow: -1px -1px 0px #ccc, 1px 1px 0px white; */
+      }
+
+      tr {
+        /* 随机背景颜色 */
+        background-color: rgb(0, 0, 0, 0.1);
+      }
+
+      button {
+        width: 80px;
+        height: 80px;
+        margin-top: 100px;
+        border-radius: 50%;
+        border: none;
+        box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+          6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+          12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+          22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+          41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+          100px 100px 80px rgba(0, 0, 0, 0.07);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <table border="1" cellspacing="0">
+        <caption>
+          <h1>欢迎来到学生信息管理系统</h1>
+        </caption>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>学号</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody class="content"></tbody>
+      </table>
+
+      <button class="addstu">添加<br />学生</button>
+    </div>
+
+    <script>
+      //获取元素
+      var tbody = document.getElementsByClassName('content')[0];
+      var addstu = document.getElementsByClassName('addstu')[0];
+
+      //绑定点击事件
+      addstu.onclick = () => {
+        // 跳转到添加页面
+        window.open('./studentAdd.html');
+      };
+
+      // 2.创建动态数据
+      var stuArr = [];
+      stuArr = [
+        { name: '尤雨溪', age: '35', id: '10086' },
+        { name: '阮一峰', age: '30', id: '10010' },
+        { name: '田所浩二', age: '24', id: '114514' },
+      ];
+
+      // 使用字符串拼接的方式
+      var showDate = () => {
+        var str = '';
+        for (let i = 0; i < stuArr.length; i++) {
+          str += `
+        <tr>
+          <td>${stuArr[i].name}</td>
+          <td>${stuArr[i].age}</td>
+          <td>${stuArr[i].id}</td>
+          <td>
+            <span>删除</span>
+            <span>编辑</span>
+          </td>
+        </tr>
+       `;
+        }
+        // 把拼接好的字符渲染到tbody
+        tbody.innerHTML = str;
+      };
+
+      if(sessionStorage.getItem('newStu')
+      var newStu = JSON.parse(sessionStorage.getItem('newStu'));
+      stuArr.push(newStu);
+      // 渲染数据
+      showDate();
+      console.log(stuArr);
+
+      //========================我是分割线==============================
+      // 随机背景颜色带透明度;
+      var trs = document.querySelectorAll('tr');
+      for (var i = 0; i < trs.length; i++) {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        var a = Math.random() * 0.3;
+        trs[i].style.backgroundColor =
+          'rgb(' + r + ',' + g + ',' + b + ',' + a + ')';
+      }
+    </script>
+  </body>
+</html>

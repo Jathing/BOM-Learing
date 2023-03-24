@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="start">开始</button>
+    <button class="end">结束</button>
+    <h1 class="who">who</h1>
+    <img src="#" alt="">
+    <script>
+          let names = ["甄嬛", "浣碧", "流朱", "乌拉那拉宜修", "沈眉庄", "颂之", "曹琴默"];
+          let imgs = ["./image/images/zhenhuan.jpg", "./image/images/huanbi.jpg", "./image/images/liuzhu.jpg", "./image/images/wula.jpg", "./image/images/shenmeizhuang.jpg", "./image/images/songzhi.jpg", "./image/images/caoqinmo.jpg"];
+
+        // 获取元素
+        var start = document.querySelector('.start');
+        var end = document.querySelector('.end');
+        var who = document.querySelector('.who');
+        var img = document.querySelector('img');
+
+        // 初始变量
+        var timer;
+        var index = 0;
+
+        // 开始事件
+        start.onclick = function(){
+            // 清除定时器 多次初始化定时器，每次初始化定时器的时候先执行清除操作，保证只有一个定时器在执行
+            clearInterval(timer);
+           timer =  setInterval(function(){
+                who.textContent = names[index];
+                img.src = imgs[index] ;
+                index++;
+                if(index >= names.length){
+                    index = 0;
+                }
+            },500)
+        }
+
+        // 结束事件
+        end.onclick = function(){
+            // 清除定时器
+            clearInterval(timer)
+        }
+
+
+
+
+
+       
+    </script>
+</body>
+</html>

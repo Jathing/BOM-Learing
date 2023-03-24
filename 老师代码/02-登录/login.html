@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 需求：在login页面 你可以登录 
+              账户 admin   密码 123456
+              输入正确，跳转到index页面
+              如果输入错误，还在登录页面
+
+              登陆过后
+              在首页有一个退出登录的按钮 点击退出登录，直接跳转到登录页
+
+              需要做登录守卫
+            
+            -->
+   
+              账号：<input type="text" id="userName">
+              密码：<input type="text" id="passWord">
+              <button id="loginBtn">登录</button>
+    
+    <script>
+        // 获取
+        var admin = document.getElementById('userName');
+        var pwd = document.getElementById('passWord');
+        var btn = document.getElementById('loginBtn');
+
+        // 绑定点击事件
+        btn.onclick = function(){
+            if(admin.value == 'admin' && pwd.value == '123456'){
+                // 这个东西很关键 在localStorage放一个类似标识的东西
+                 localStorage.setItem('key','true');
+                 location.href = './index.html';
+
+            }else{
+                alert('账号或密码输入错误')
+            }
+        }
+    </script>
+</body>
+</html>

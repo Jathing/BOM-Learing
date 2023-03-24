@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 修改学生信息界面 -->
+    姓名：<input type="text" id="userName">
+    年龄：<input type="text" id="userAge">
+    学号：<input type="text" id="userId">
+    <button id="update">修改学生</button>
+
+    <script>
+        var userName = document.getElementById('userName');
+        var age = document.getElementById('userAge');
+        var idNum = document.getElementById('userId');
+        var update = document.getElementById('update');
+
+        // 守卫
+        if(!sessionStorage.getItem('updateId')){
+            location.replace('./studentList.html')
+        }
+
+        // 获取到仓库的索引
+        var index = sessionStorage.getItem('updateId');
+        // 获取仓库中的数组
+        var stuArr = JSON.parse(sessionStorage.getItem('stuArr'));
+        console.log(index);
+        console.log(stuArr);
+
+        // 数据的反显
+        userName.value = stuArr[index].name;
+        age.value = stuArr[index].age;
+        idNum.value = stuArr[index].id;
+
+        // 给修改学生绑定点击事件
+        update.onclick = function () {
+            var obj = {
+                name: userName.value.trim(),
+                age: age.value.trim(),
+                id: idNum.value.trim(),
+            }
+            // 拿到学生的修改信息对象
+            // console.log(obj);
+            stuArr[index] = obj;
+            // 新数组放在仓库里
+            sessionStorage.setItem('stuArr',JSON.stringify(stuArr));
+            location.replace('./studentList.html')
+        }
+
+    </script>
+</body>
+
+</html>

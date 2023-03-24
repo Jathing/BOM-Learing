@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>您好,欢迎进入首页</h1>
+  <button>退出登录</button>
+  <script>
+    //登录守卫
+
+    if (localStorage.getItem('isLogin') === 'true') {
+      alert('欢迎进入首页')
+    } else {
+      alert('请先登录')
+      location.replace('./login.html')
+    }
+
+    var btn = document.getElementsByTagName('button')[0]
+    btn.onclick = () => {
+      localStorage.removeItem('isLogin')
+      location.href = './login.html'
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "name": "运行当前文件",
+      "request": "launch",
+      "program": "${workspaceFolder}\\03-多页面的联动编辑和删除\\studentList.html"
+    }
+  ]
+}

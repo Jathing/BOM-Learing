@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- history 对象允许我们访问浏览器曾经的历史条数 -->
+  <h1>我是go</h1>
+  <button id="go">go</button>
+  <button id="back">返回上一页</button>
+  <script>
+    console.log(history.length)
+    var goEle = document.getElementById('go')
+    var backEle = document.getElementById('back')
+
+    //回到上一页
+    goEle.onclick = () => {
+      history.go(-1)
+    }
+
+    //回到上一页
+    backEle.onclick = () => {
+      history.back()
+    }
+  </script>
+</body>
+
+</html>

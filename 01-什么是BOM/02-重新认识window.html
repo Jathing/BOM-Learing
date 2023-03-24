@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 100px;
+      border: 10px solid red;
+      margin: 10px
+    }
+
+    .content {
+      width: 100%;
+      height: 1200px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 视角一: 全局对 -->
+  <!-- 视角二: 浏览器窗口对象,提供了浏览器操作相关的api -->
+
+  <!-- js的运行环境 2个
+      1) 浏览器 把js代码运行在浏览器上 全局对象是window
+      2) Node　node是一个运行环境    全局对象是global 在node中没有window
+      但是现在统一 globalThis
+   -->
+
+  <button class="open">百度一下</button>
+  <button class="close">关闭窗口</button>
+  <div class="content"></div>
+
+  <script>
+    console.log(window)
+    console.log(globalThis)
+    console.log(window === globalThis)
+
+    //获取按钮
+    var openEle = document.querySelector('.open')
+    var closeEle = document.querySelector('.close')
+
+    //打开窗口
+    var win = null
+    openEle.onclick = () => {
+      win = window.open('https://www.baidu.com')
+    }
+
+    // 关闭窗口
+    closeEle.onclick = () => {
+      win.close()
+    }
+
+    // outerHeiht整个浏览器高度
+    console.log(window.outerHeight)
+    // console.log(globalThis.outerHeight)
+    // innerHeiht窗口内容区的高度 不包含边框和菜单栏
+    console.log(window.innerHeight)
+    // clientHeigth
+    console.log(document.documentElement.clientHeight)
+    // console.log(globalThis.innerHeight)
+    console.log(window.innerHeight === document.documentElement.clientHeight)
+    // console.log(document.documentElement.offsetHeight)
+    // 获取焦点和失去焦点
+    window.onfocus = () => {
+      console.log('浏览器获取焦点')
+    }
+    window.onblur = () => {
+      console.log('浏览器失去焦点')
+    }
+  </script>
+</body>
+
+</html>

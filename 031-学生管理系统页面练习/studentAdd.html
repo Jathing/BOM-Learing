@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 600px;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 添加学生页面 -->
+    <div class="box">
+      <h2>请输入要添加的学生信息</h2>
+      <span>姓名:</span>
+      <input type="text" class="userName" /> <br />
+      <span>年龄:</span>
+      <input type="text" class="userAge" /> <br />
+      <span>学号:</span>
+      <input type="text" class="userId" /> <br />
+
+      <button id="addstu">添加</button>
+    </div>
+    <script>
+      var userName = document.querySelector('.userName');
+      var userAge = document.querySelector('.userAge');
+      var userId = document.querySelector('.userId');
+      var addstu = document.querySelector('#addstu');
+
+      addstu.onclick = () => {
+        if (userName.value && userAge.value && userId.value) {
+          var obj = {
+            name: userName.value.trim(),
+            age: userAge.value.trim(),
+            id: userId.value.trim(),
+          };
+          sessionStorage.setItem('newStu', JSON.stringify(obj));
+          window.open('./studentList.html');
+        } else {
+          alert('请填写完成信息');
+        }
+      };
+
+      
+    </script>
+  </body>
+</html>

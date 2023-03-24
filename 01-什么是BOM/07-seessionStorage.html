@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- 在浏览器中有一部存储空间,用来存储一些数据 临时存储 -->
+  <!-- 会随着页面的关闭而消失 -->
+
+  <button>存储信息 </button>
+  <button>读取信息 </button>
+  <button>删除信息 </button>
+  <script>
+    var btn = document.getElementsByTagName('button')
+
+    //存储信息
+    btn[0].onclick = () => {
+      sessionStorage.setItem('name', 'chen')
+    }
+
+    //获取信息
+    btn[1].onclick = () => {
+      var name = sessionStorage.getItem('name')
+      console.log(name)
+    }
+
+    //删除信息
+    btn[2].onclick = () => {
+      var name = sessionStorage.removeItem('name')
+      console.log(name)
+    }
+  </script>
+</body>
+
+</html>

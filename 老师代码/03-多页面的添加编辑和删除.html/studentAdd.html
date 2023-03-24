@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 添加学生页面 -->
+    姓名：<input type="text" id="userName">
+    年龄：<input type="text" id="userAge">
+    学号：<input type="text" id="userId">
+    <button id="addUser">添加</button>
+   
+   
+   <script>
+    // 需求：点击跳转到新的页面 并且获取到添加学生的信息（input里面value值）
+    // 解决：先把input框中value值存储到一个地方 存储过之后，跳到列表页面，
+    //       在列表页面去仓库里拿到你存进去的最新的学生信息，渲染
+
+    // 获取元素
+    var userName = document.getElementById('userName');
+    var userAge = document.getElementById('userAge');
+    var userId = document.getElementById('userId');
+    var addUser = document.getElementById('addUser');
+
+  
+
+    // 绑定点击事件
+    addUser.onclick = function(){
+        // 如果input框中都有值 则进入if条件
+        if(userName.value && userAge.value && userId.value){
+            // console.log(111);
+            // 存储在一个对象中,一个学生是一个对象,这个对象里面的属性要和学生信息表对象里的属性保持一致
+            var obj = {
+                name:userName.value.trim(),
+                age:userAge.value.trim(),
+                id:userId.value.trim(),
+            }
+            console.log(obj);
+            
+            // 把这个对象存起来，数据放在浏览器存储空间中
+
+            // 要把这个对象存起来 放在sessionStorage  但是sessionStorage不能存放对象 需要存的是一个JSON对象
+            // JSON是对象的一个数据格式
+            // JSON.stringify  把对象转成JSON格式
+            // JSON.parse      把JSON格式转成对象
+            sessionStorage.setItem('newStu',JSON.stringify(obj));
+            // 跳转到学生信息表
+            window.open('./studentList.html')
+
+        }else{
+            alert('请填写完整信息')
+        }
+    }
+       
+    </script>
+</body>
+</html>

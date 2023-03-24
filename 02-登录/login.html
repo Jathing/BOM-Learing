@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 需求:在login页面 你可以登录
+  账号 admin  密码 123456
+  输入正确,跳转到index的页面
+  如果错误,还在登录页
+
+  登录过后
+  在首页有一个退出登录的按钮 点击退出登录,直接跳转到登录页面  -->
+
+  账号: <input type="text" id="userName">
+  密码: <input type="text" id="passWord">
+  <button id="loginBtn">登录</button从>
+    <script>
+      //获取
+      var admin = document.getElementById('userName')
+      var pwd = document.getElementById('passWord')
+      var btn = document.getElementById('loginBtn')
+
+      //绑定事件
+      btn.onclick = function () {
+        //获取输入的值
+        var adminVal = admin.value
+        var pwdVal = pwd.value
+
+        //判断
+        if (adminVal == 'admin' && pwdVal == '123456') {
+          //登录成功
+          //存储信息 在localStorage中存储一个isLogin的信息 是一个标识
+          localStorage.setItem('isLogin', 'true')
+          //跳转页面
+          location.href = './index.html'
+        } else {
+          //登录失败
+          alert('账号或密码错误')
+        }
+      }
+    </script>
+</body>
+
+</html>

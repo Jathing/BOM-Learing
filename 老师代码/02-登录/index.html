@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>您好，欢迎进入首页</div>
+    <button>退出登录</button>
+    <script>
+        // 登录守卫
+        if(localStorage.getItem('key') == 'true'){
+            alert('欢迎进入此网页')
+        }else{
+            location.replace('./login.html')
+        }
+
+        var btn = document.getElementsByTagName('button')[0];
+        btn.onclick = function(){
+            localStorage.removeItem('key');
+            location.href='./login.html'
+        }
+       
+    </script>
+</body>
+</html>

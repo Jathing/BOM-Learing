@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>打开新网页</button>
+  <button>替换新网页</button>
+  <button>网页重新加载</button>
+  <!-- //location对象用于表示window上当前链接到的URL信息 -->
+  <!-- url 统一资源定位符 -->
+  <!-- 利用url 可以定位互联网上的一个页面 -->
+
+  <!-- url组成 -->
+  <!-- https://www.baidu.com:443/admin/?name='chen'#abc -->
+
+  <!--
+     https:// 协议
+      www.badu.com host 主机地址
+      :443 https 端口号 :80 http
+      /admin 路径名
+      ?name = 'chen' 查询字符串
+      #abc 哈希值
+  -->
+  <script>
+
+    //location常用的方法 掌握!
+    var btn = document.querySelectorAll('button')
+
+    // assign 打开一个新的url
+    btn[0].onclick = () => {
+      location.assign('https://www.baidu.com')
+    }
+
+    // replace 打开一个新的url 替换为原本的网页 浏览器没有记录 没有返回按钮
+    btn[1].onclick = () => {
+      location.replace('https://www.baidu.com')
+    }
+
+    // reload 重新加载页面 Ctrl F5 强制刷新 把你页面的缓存也清楚掉了
+    btn[2].onclick = () => {
+      location.reload(true)
+    }
+
+    console.log(location)
+    console.log(location.protocol)
+    console.log(location.host)
+    console.log(location.hostname)
+    console.log(location.port)
+
+
+    // 查询字符串
+    var queryString = `?name=chen`
+    var searchParms = new URLSearchParams(queryString)
+    // 获取参数
+    console.log(searchParms)
+    console.log(searchParms.get('name'))
+
+    // 追加参数值
+    searchParms.append(`address`, 'zz')
+    console.log(searchParms.get('address'))
+
+    //设置参数值
+    searchParms.set('name', 'ChenJiaXIn')
+    console.log(searchParms.get('name'))
+
+    console.log(document.cookie)
+
+  </script>
+</body>
+
+</html>
