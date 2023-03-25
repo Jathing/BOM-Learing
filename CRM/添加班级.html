@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/添加班级.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/public.js"></script>
+  </head>
+
+  <body>
+    <div class="top">
+      <!--        顶部-->
+      <div class="logo">
+        <a href="#">
+          <img src="images/logo.png" alt="" />
+        </a>
+      </div>
+      <div class="menu">
+        <img src="icon/menu.svg" alt="" />
+      </div>
+      <div class="user">
+        <div class="avatar">
+          <div class="ico">
+            <img src="images/avatar.png" alt="" />
+          </div>
+          <span>姓名002</span>
+        </div>
+        <div class="notice">
+          <img src="images/notice.png" alt="" />
+          <span>通知公告</span>
+        </div>
+        <div class="quit">
+          <img src="images/quit.png" alt="" />
+          <span>注销退出</span>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="nav">
+        <!--        侧边导航栏-->
+        <div class="jxdgl">教学点管理</div>
+        <ul class="nav-list">
+          <li>
+            <a href="./班级管理.html">
+              <i class="ico"></i>
+              <span>班级管理</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="./学生管理.html">
+              <i class="ico"></i>
+              <span>学生管理</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+
+          <li>
+            <a class="this" href="./添加班级.html">
+              <i class="ico"></i>
+              <span>添加班级</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="./修改班级.html">
+              <i class="ico"></i>
+              <span>修改班级</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="./添加学生.html">
+              <i class="ico"></i>
+              <span>添加学生</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="./修改学生.html">
+              <i class="ico"></i>
+              <span>修改学生</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="ico"></i>
+              <span>成绩管理</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="ico"></i>
+              <span>修改成绩</span>
+              <i class="ico-yjt">
+                <img src="icon/yjt.png" alt="" />
+              </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contaner">
+        <!--        主要内容区域    -->
+        <div class="pd30">
+          <div class="title">
+            <div class="icon"></div>
+            <p>前端实训课程——添加班级&emsp;【码路教育】</p>
+          </div>
+          <div class="content">
+            <ul>
+              <li>开课时间：<input type="text" /></li>
+              <li>
+                课程状态：<select name="" id="">
+                  <option value="报名中">报名中</option>
+                  <option value="实训中">实训中</option>
+                  <option value="已毕业">已毕业</option>
+                </select>
+              </li>
+            </ul>
+            <div>
+              <button>添加</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    //添加班级
+    // 获取元素
+    var inputEle = document.querySelector('input');
+    var selectEle = document.querySelector('select');
+    var btnEle = document.querySelector('button');
+
+    console.log(selectEle.value);
+    // 给按钮添加点击事件
+    btnEle.onclick = function () {
+      // 获取input框的值
+      var inputValue = inputEle.value;
+      // 获取select框的值
+      var selectValue = selectEle.value;
+
+      // 判断input框的值是否为空
+      if (inputValue == '') {
+        alert('请输入开课时间');
+        // return;
+      } else {
+        var obj = {
+          startTime: inputValue.trim(),
+          status: selectValue,
+        };
+        sessionStorage.setItem('newClass', JSON.stringify(obj));
+
+        // 跳转到班级管理页面
+        location.replace('./班级管理.html');
+      }
+    };
+  </script>
+</html>

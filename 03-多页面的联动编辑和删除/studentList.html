@@ -136,7 +136,11 @@
 
         // 重新绑定点击事件
         ondelte();
+
+        // 重新绑定编辑事件
+        onupdate();
       } // 判断sessionStorage中是否有数据,如果有值的话,放到数组中,然后渲染到页面上
+
       function isNew() {
         // 判断sessionStorage中是否有数据
         if (sessionStorage.getItem('newStu')) {

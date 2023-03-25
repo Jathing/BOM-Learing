@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #33206c;
+}
+.item {
+  width: 80vw;
+  height: 80vh;
+  margin: 10vh auto;
+  background-color: #e4d9e9;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.item img {
+  width: 500px;
+  height: 500px;
+  border-radius: 30px;
+}
+
+.item .CRMLogin {
+  width: 400px;
+  height: 500px;
+  border-radius: 30px;
+  background-color: #ede7f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item .CRMLogin .CRMLogin_title {
+  width: 100%;
+  
+  display: flex;
+}

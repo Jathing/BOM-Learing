@@ -1,0 +1,94 @@
+.pd30{
+    padding: 4%;
+    box-sizing: border-box;
+}
+.title{
+    height: 30px;
+    margin-left: -15px;
+}
+.title .icon{
+    height: 25px;
+    border-radius: 10px;
+    background: #FEAE85;
+    width: 5px;
+    float: left;
+    margin-right: 10px;
+}
+.title p{
+    font-size: 18px;
+    color: #1B4585;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+
+
+
+.table table{
+    width: 100%;
+    text-align: center;
+    border-collapse:collapse;
+    border-spacing: 0;/*把单元格间隙设置为0*/
+}
+.table table th{
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    color: #1B4585;
+    background: #D9E5F1;
+    font-weight: normal;
+}
+.table table tr th{
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+    border: none;
+}
+.table table tr td{
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 2px solid #9FBEDC;
+}
+.table table td{
+    font-size: 12px;
+}
+.table table .option div{
+    width:30%;
+    border-radius: 5px;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 3%;
+    color: white;
+    background: #FEAE85;
+    margin: 0 auto;
+}
+.table .photo{
+    width: 90%;
+    background: #FEAE85;
+    height: 25px;
+    line-height:25px;
+    border-radius: 5px;
+    color: white;
+}
+.table ul{
+    margin-top: 30px;
+    overflow: hidden;
+    line-height: 25px;
+    height: 25px;
+    font-size: 12px;
+}
+.table ul li{
+    float: left;
+    margin-right: 20px;
+}
+.table ul li:nth-child(4){
+    background: #206A9D;
+    width: 25px;
+    text-align: center;
+    color: white;
+}
+.option div{
+    float: left;
+    margin-left: 10% !important;
+}

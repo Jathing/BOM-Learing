@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="box">
+      <div class="content">
+        <img class="login-img images" src="./asset/login.jpg" alt="登录" />
+        <img
+          class="register-img images"
+          src="./asset/register.jpg"
+          alt="注册"
+        />
+
+        <!-- 登录界面 -->
+        <div class="login-wrapper">
+          <div class="top-tips">
+            <span>crm管理系统</span>
+            <span class="top-tips-span">注册</span>
+          </div>
+          ·
+          <h1 class="h1-text">登录</h1>
+          <div class="login-form">
+            <div class="user-form form-item">
+              <div class="text-tips">
+                <span>账号</span>
+              </div>
+              <input type="text" />
+            </div>
+            <div class="password-form form-item">
+              <div class="text-tips">
+                <span>密码</span>
+              </div>
+              <input type="password" />
+            </div>
+            <button class="btn">登录</button>
+          </div>
+
+          <!-- 注册页面 -->
+          <div class="register-form">
+            <div class="user-form form-item">
+              <div class="text-tips">
+                <span>账号</span>
+              </div>
+              <input type="text" />
+            </div>
+            <div class="password-form form-item">
+              <div class="text-tips">
+                <span>密码</span>
+              </div>
+              <input type="password" />
+            </div>
+            <div class="password-form form-item">
+              <div class="text-tips">
+                <span>确认密码</span>
+              </div>
+              <input type="password" />
+            </div>
+            <button class="btn">注册</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let flag = 1;
+    let tts = document.querySelector('.top-tips-span');
+    tts.onclick = function () {
+      if (flag) {
+        document.querySelector('.content').classList.add('add-class-content');
+        document
+          .querySelector('.login-img')
+          .classList.add('add-class-login-img');
+        document
+          .querySelector('.register-img')
+          .classList.add('add-class-register-img');
+        document
+          .querySelector('.login-img')
+          .classList.remove('add-class-login-img-show');
+        document.querySelector('.login-wrapper').style.height = '80vh';
+        document.querySelector('.content').style.height = '90vh';
+        document.querySelector('.login-form').style.display = 'none';
+        document.querySelector('.register-form').style.display = 'block';
+        document.querySelector('.top-tips-span').innerHTML = '登录';
+        document.querySelector('.h1-text').innerHTML = '注册';
+        flag = 0;
+      } else {
+        document
+          .querySelector('.content')
+          .classList.remove('add-class-content');
+        document
+          .querySelector('.login-img')
+          .classList.remove('add-class-login-img');
+        document
+          .querySelector('.login-img')
+          .classList.add('add-class-login-img-show');
+        document
+          .querySelector('.register-img')
+          .classList.remove('add-class-register-img');
+        document.querySelector('.login-wrapper').style.height = '70vh';
+        document.querySelector('.content').style.height = '85vh';
+        document.querySelector('.login-form').style.display = 'block';
+        document.querySelector('.register-form').style.display = 'none';
+        document.querySelector('.top-tips-span').innerHTML = '注册';
+        document.querySelector('.h1-text').innerHTML = '登录';
+        flag = 1;
+      }
+    };
+
+    //注册判断
+    function geiId() {
+      let userPg = document.querySelector('.register-form');
+      let getUser = userPg.querySelectorAll('.user-form input')[0];
+      let getPwd = userPg.querySelectorAll('.password-form input');
+      let idBtn = userPg.querySelector('.btn');
+      idBtn.onclick = function () {
+        if (getUser.value && getPwd[0].value && getPwd[1].value) {
+          let reg = /^[a-zA-Z0-9_-]{4,16}$/;
+          if (reg.test(getUser.value && getPwd[0].value && getPwd[1].value)) {
+            if (!localStorage.getItem(`${getUser.value}`)) {
+              if (getPwd[0].value == getPwd[1].value) {
+                localStorage.setItem(`${getUser.value}`, getPwd[0].value);
+                getUser.value = '';
+                getPwd[0].value = '';
+                getPwd[1].value = '';
+                tts.click();
+              } else {
+                alert('两次密码不一致');
+              }
+            } else {
+              alert('账号已注册');
+            }
+          } else {
+            alert('账号或密码格式不正确');
+          }
+        } else {
+          alert('请填完整信息');
+        }
+      };
+    }
+    geiId();
+
+    //登录判断
+    let loginPg = document.querySelector('.login-wrapper');
+    let loginUseName = loginPg.querySelector('.user-form input');
+    let loginPwd = loginPg.querySelector('.password-form input');
+    let loginBtn = loginPg.querySelector('.login-form .btn');
+    let lock = true;
+    loginBtn.onclick = function () {
+      if (localStorage.getItem(`${loginUseName.value}`)) {
+        if (localStorage.getItem(`${loginUseName.value}`) == loginPwd.value) {
+          sessionStorage.setItem('lock', lock);
+          location.href = '../班级管理.html';
+          loginUseName.value = '';
+          loginPwd.value = '';
+        } else {
+          alert('密码错误请重新输入');
+        }
+      } else {
+        alert('这个账号还没有注册');
+      }
+    };
+  </script>
+</html>
