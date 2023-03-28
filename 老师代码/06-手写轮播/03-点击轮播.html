@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 500px;
+            height: 350px;
+            margin: 100px auto;
+            border: 1px solid red;
+            /* 元素超出隐藏 */
+            overflow: hidden;
+            position: relative;
+        }
+        ul{
+            list-style: none;
+            width: 500%;
+            position: absolute;
+            /* 动画 */
+            /* transition: all .5s linear; */
+
+        }
+        ul li{
+            width: 500px;
+            height: 350px;
+            float: left;
+        }
+        ul li img{
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul style="left:0">
+            <li><img src="../image/img-集原美/img1.jpg" alt=""></li>
+            <li><img src="../image/img-集原美/img2.jpg" alt=""></li>
+            <li><img src="../image/img-集原美/img3.jpg" alt=""></li>
+            <li><img src="../image/img-集原美/img4.jpg" alt=""></li>
+            <li><img src="../image/img-集原美/img5.jpg" alt=""></li>
+        </ul>
+       
+    </div>
+    <button id="pre">上一页</button>
+    <button id="next">下一页</button>
+    
+    <script>
+        var pre = document.getElementById('pre');
+        var next = document.getElementById('next');
+        var uls = document.getElementsByTagName('ul')[0];
+        
+        // 实现思路：
+        // 写一个动画，执行的改变left值
+        // 如果点到最后一张的时候，跳到第一张
+
+        // 下一张
+        next.onclick = function(){
+            if(parseInt(uls.style.left) == -2000){
+                uls.style.left = 0;
+            }else{
+                uls.style.left = parseInt(uls.style.left) - 500 + 'px'
+            }
+           
+        }
+
+        // 上一张
+        pre.onclick = function(){
+            if(parseInt(uls.style.left) == 0){
+                uls.style.left = -2000 + 'px';
+            }else{
+                uls.style.left = parseInt(uls.style.left) + 500 + 'px'
+            }
+           
+        }
+
+
+       
+    </script>
+</body>
+</html>

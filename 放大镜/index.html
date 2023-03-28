@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 300px;
+        height: 200px;
+        background-image: url(../老师代码/定时器/image/img-集原美/img1.jpg);
+        background-size: 100%;
+        /* 设置背景图片尺寸 */
+        background-size: 300px 200px;
+        /* display: flex; */
+        position: relative;
+      }
+      .slider {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        cursor: pointer;
+      }
+      .small {
+        width: 100px;
+        height: 100px;
+        background-image: url(../老师代码/定时器/image/img-集原美/img1.jpg);
+        background-size: 300px 200px;
+        transform: scale(3);
+        position: absolute;
+        top: 100px;
+        left: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <!-- 产品区域 -->
+      <div class="slider"></div>
+      <!-- 放大区域 -->
+      <div class="small"></div>
+    </div>
+
+    <script>
+      var slider = document.querySelector('.slider');
+      var small = document.querySelector('.small');
+
+      slider.onmousedown = e => {
+        console.log(e);
+        var startX = e.offsetX;
+        var startY = e.offsetY;
+        //鼠标移动
+        document.onmousemove = e1 => {
+          var left = e1.clientX - startX;
+          var top = e1.clientY - startY;
+          console.log(left);
+          console.log(top);
+          if (left >= 200) {
+            left = 200;
+            //终止事件
+            // document.onmousemove = null;
+          } else if (left <= 0) {
+            left = 0;
+          }
+
+          if (top >= 100) {
+            top = 100;
+            // document.onmousemove = null;
+          } else if (top <= 0) {
+            top = 0;
+          }
+
+          slider.style.left = left + 'px';
+          slider.style.top = top + 'px';
+
+          // small.style.backgroundPosition = `-${left}px-${top}px`;
+          small.style.backgroundPosition = '-' + left + 'px -' + top + 'px';
+        };
+      };
+    </script>
+  </body>
+</html>

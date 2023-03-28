@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 300px;
+        height: 200px;
+        background: url(../定时器/image/img-集原美/img1.jpg);
+        /* 设置背景图片尺寸 */
+        background-size: 300px 200px;
+        position: relative;
+      }
+      .slider {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .small {
+        width: 100px;
+        height: 100px;
+        background: url(../定时器/image/img-集原美/img1.jpg);
+        background-size: 300px 200px;
+        /* 让元素放大 */
+        position: absolute;
+        top: 0;
+        top: 100px;
+        left: 500px;
+        transform: scale(3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <!-- 产品区域 -->
+      <div class="slider"></div>
+      <!-- 放大区域 -->
+      <div class="small"></div>
+    </div>
+
+    <script>
+      var slider = document.querySelector('.slider');
+      var small = document.querySelector('.small');
+
+      slider.onmousedown = function (e) {
+        console.log(e);
+        var startX = e.offsetX;
+        var startY = e.offsetY;
+        // 鼠标移动
+        document.onmousemove = function (e1) {
+          var left = e1.clientX - startX;
+          var top = e1.clientY - startY;
+          console.log(left);
+          console.log(top);
+          if (left >= 200) {
+            left = 200;
+          } else if (left <= 0) {
+            left = 0;
+          }
+
+          if (top >= 100) {
+            top = 100;
+          } else if (top <= 0) {
+            top = 0;
+          }
+
+          slider.style.left = left + 'px';
+          slider.style.top = top + 'px';
+
+          small.style.backgroundPosition = '-' + left + 'px -' + top + 'px';
+          // small.style.backgroundPosition= "-30px -100px'
+        };
+      };
+    </script>
+  </body>
+</html>

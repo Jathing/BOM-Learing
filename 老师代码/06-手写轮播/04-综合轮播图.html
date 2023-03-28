@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 600px;
+        height: 300px;
+        margin: 100px auto;
+        overflow: hidden;
+        position: relative;
+      }
+      .wrapper {
+        /* 图片的总宽度 */
+        width: 600%;
+        height: 300px;
+        position: absolute;
+        left: 0;
+      }
+      .wrapper div {
+        width: 600px;
+        height: 300px;
+        float: left;
+        /* 背景图片尺寸 */
+        background-size: 100%;
+      }
+
+      /* 左右箭头 */
+      .pre,
+      .next {
+        width: 20px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        /* 点击光标变成手指 */
+        cursor: pointer;
+      }
+      .pre {
+        left: 0;
+      }
+      .next {
+        right: 0;
+      }
+
+      /* 圆点样式 */
+      .lis {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+      }
+      .lis span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ccc;
+      }
+      .lis .active {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="wrapper">
+        <div style="background-image: url(../image/images/s1.jpg)"></div>
+        <div style="background-image: url(../image/images/s2.jpg)"></div>
+        <div style="background-image: url(../image/images/s3.jpg)"></div>
+        <div style="background-image: url(../image/images/s4.jpg)"></div>
+        <div style="background-image: url(../image/images/s5.jpg)"></div>
+        <!-- 复制第一张图片为最后一张图片，实现无缝切换 -->
+        <div style="background-image: url(../image/images/s1.jpg)"></div>
+      </div>
+
+      <!-- 左按钮 -->
+      <div class="pre">&lt;</div>
+      <div class="next">&gt;</div>
+      <!-- 小圆点 -->
+      <div class="lis">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <script>
+      /*   需求：制作一个无缝滚动轮播图，轮播图会自动无缝滚动切换，当鼠标移到轮播图区域停止自动播放，鼠标移出后轮播图继续自动播放，拥有向左、向右点击切换功能和底部小圆点切换功能。
+             1.需要实现每隔一定时间进行下一张图片的自动轮播
+             2.需要点击左右按钮可以进行上下图片的切换
+             3.显示当前位置的小圆点
+             4.点击小圆点可以切换到对应的图片上
+             5.鼠标移入可视区时，停止轮播，显示左右按钮
+        */
+
+      /* 思路：
+            图片移动的实现原理：把几张图片放在一个整体的盒子里面，使用浮动并排显示，盒子宽度是所有图片之和，外面套一个父级盒子，宽度为一张图片的宽度，超出隐藏
+            图片移动的动画原理：当前图片点击到下一张图片的时候，每次点击的时候移动left值，实现动画效果
+            图片停止原理：起初是有自动滚动效果，当你鼠标移入onmouseover 清除定时器，当你鼠标移出onmouseout，重新开始定时器
+            无缝衔接原理：点击左右切换的时候用transform动画实现，当到最后一张和第一张的时候，把动画去掉
+        */
+
+      // 获取元素
+      var box = document.getElementsByClassName('box')[0]; //box元素
+      var wrapper = document.getElementsByClassName('wrapper')[0]; //wrapper轮播
+      var divs = document.querySelectorAll('.wrapper div'); //每一个div元素
+      var pre = document.getElementsByClassName('pre')[0]; //左箭头元素
+      var next = document.getElementsByClassName('next')[0]; //右箭头元素
+      var lis = document.getElementsByClassName('lis')[0]; //小圆点整体元素
+      var spans = document.getElementsByTagName('span'); //小圆点元素
+
+      // 点击下一张
+      var index = 0;
+      // next.onclick = function(){
+      function nextClick() {
+        index++;
+        // 动画
+        wrapper.style.transition = 'all 0.5s';
+        wrapper.style.transform =
+          'translateX(' + -index * divs[0].offsetWidth + 'px)';
+        // 判断
+        // 如果到了最后一张
+        if (index == divs.length - 1) {
+          index = 0;
+          setTimeout(function () {
+            wrapper.style.transition = 'none';
+            wrapper.style.transform = 'translateX(0)';
+          }, 500);
+        }
+
+        // 小圆点变换
+        for (var i = 0; i < spans.length; i++) {
+          // 初始化类名 排他思想
+          spans[i].className = '';
+          console.log(spans[index]);
+          // 给对应图片的小圆点添加上类名
+          spans[index].className = 'active';
+        }
+      }
+
+      next.onclick = nextClick;
+
+      // 点击上一张
+      function preClick() {
+        // pre.onclick = function(){
+        index--;
+        // 动画
+        // 判断
+        // 如果到了最后一张
+        // 点击到第一张（最后一张 对应的index是-1）的时候，
+        // 需要切换到倒数一张（倒数第二张  对应的index是4）
+        if (index == -1) {
+          wrapper.style.transition = 'none';
+          wrapper.style.transform =
+            'translateX(' + -5 * divs[0].offsetWidth + 'px)';
+          // 切换到倒数第二张
+          index = 4;
+          setTimeout(function () {
+            wrapper.style.transition = 'all 0.5s';
+            wrapper.style.transform =
+              'translateX(' + -index * divs[0].offsetWidth + 'px)';
+          }, 0);
+        } else {
+          // 正常切换
+          wrapper.style.transition = 'all 0.5s';
+          wrapper.style.transform =
+            'translateX(' + -index * divs[0].offsetWidth + 'px)';
+        }
+
+        // 小圆点变换
+        for (var i = 0; i < spans.length; i++) {
+          // 初始化类名 排他思想
+          spans[i].className = '';
+          console.log(spans[index]);
+          // 给对应图片的小圆点添加上类名
+          spans[index].className = 'active';
+        }
+      }
+      pre.onclick = preClick;
+
+      // 自动轮播
+      var timer = setInterval(nextClick, 1000);
+
+      // 移入box 清除定时器
+      box.onmouseover = function () {
+        // 清除定时器
+        clearInterval(timer);
+      };
+
+      // 移出box 重新启动定时器
+      box.onmouseout = function () {
+        timer = setInterval(nextClick, 1000);
+      };
+
+      // 小圆点的点击事件
+      for (let i = 0; i < spans.length; i++) {
+        spans[i].onclick = function () {
+          // 排他思想
+          for (let j = 0; j < spans.length; j++) {
+            spans[j].className = '';
+          }
+          // 给当前的小圆点添加上类名
+          spans[i].className = 'active';
+          // index = i;
+          // 改变图片位置 切换到点击小圆点对应的图片
+          wrapper.style.transition = 'all 0.5s';
+          wrapper.style.transform =
+            'translateX(' + -i * divs[0].offsetWidth + 'px)';
+        };
+      }
+    </script>
+  </body>
+</html>
