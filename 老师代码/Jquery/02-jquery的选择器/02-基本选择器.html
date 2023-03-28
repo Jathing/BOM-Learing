@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 先说明：选择器前面统一加上$  在jq中不用考虑能拿到多个单个 -->
+   
+    <div class="box">
+        这是一个为类名的box
+    </div>
+    <div id="box">
+        这是一个为id的box
+    </div>
+    <div>
+        这是一个div标签
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    
+    <script>
+        // jq选择器   $('')
+
+        // 1.标签选择器
+        console.log($('div'));
+        // 按照以前的方式，需要循环遍历再改颜色，jq不需要
+        $('div').css('color','red');
+        // $('div').style.color = 'red';   不可取
+
+        // 2.id选择器
+        console.log($('#box'));
+        // $('#box').inneeHtml = '12345'; //以前的不能用
+        $('#box').html('123');
+
+        // 3.类名选择器
+        console.log($('.box'));
+
+        // 4.通配符选择器
+        console.log($('*'));
+    </script>
+</body>
+</html>

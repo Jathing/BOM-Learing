@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <section>
+      <div>1</div>
+      <div>2</div>
+      <p>3</p>
+      <div>4</div>
+      <p>5</p>
+    </section>
+    <section>
+      <div>1000</div>
+    </section>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // :root 选中根节点 html标签
+      console.log($(':root'));
+
+      // nth-child() 选中第几个子元素
+      console.log($('div:nth-child(2)')); // 选中第二个div 先看位置,再看标签名
+      console.log($('div:nth-child(3)')); // 选中第三个div　第三个元素是ｐ标签,所以不会选中
+      console.log($('section > p:nth-child(3n)')); //
+
+      // :first-chlid
+      console.log($('div:first-child')); // 选中每一级的第一个div
+      console.log($('section:first-child')); // 选中第一个section
+      console.log($('section > div:first-child')); // 选中第一个section下的第一个div
+
+      // :last-child
+      console.log($('div:last-child')); // 选中每一级的最后一个div
+
+      // :only-child
+      console.log($('section>div:only-child')); // 选中每一级的唯一一个div
+
+      // :nth-child(2n+1)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="box">这是一个div</div>
+    <ul>
+      <li class="first">1</li>
+      <li>
+        2
+        <p>p标签</p>
+      </li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+    <scrit src="../JQsource/jquery-3.5.1.js"></scrit>
+    <script>
+      // 1.交集选择器
+      console.log($('.first,li')); // 选择所有的li和类名为first的li
+
+      // 2.并集选择器
+      console.log($('.first,.box')); // 选择类名为first和box的元素
+
+      // 3.后代选择器
+      console.log($('ul .first')); // 选择ul下的类名为first的元素
+
+      // 4.子代选择器
+      console.log($('ul>li')); // 选择ul下的所有的li元素
+    </script>
+  </body>
+</html>

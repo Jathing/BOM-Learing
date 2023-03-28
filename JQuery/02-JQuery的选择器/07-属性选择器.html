@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>这是一个h1标题</h1>
+    <h1 title="hello world">这是一个h1标题1</h1>
+    <h1 title="hello">这是一个h1标题2</h1>
+    <h1 title="world">这是一个h1标题3</h1>
+    <h1 title="hello jq">这是一个h1标题4</h1>
+    <p title="hello jq">这是一个h1标题</p>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      console.log($('h1[title]')); // 选中所有有title属性的元素
+
+      console.log($('h1[title!="hello"]')); // 选中所有title属性值为hello world的元素
+      // 以什么开头 ^
+      console.log($('h1[title^="h"]')); // 选中所有title属性值为hello world的元素
+
+      // 以什么结尾 $
+      console.log($('h1[title$="q"]')); // 选中所有title属性值为hello world的元素
+
+      // 包含什么 *
+      console.log($('h1[title*="jq"]')); // 选中所有title属性值为hello world的元素
+    </script>
+  </body>
+</html>

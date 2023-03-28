@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 2.通过CDN 线上地址 缺点: 当网络断开连接的时候 引入就会失效-->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  </head>
+
+  <body>
+    <div>我是一个div</div>
+    // 将js文件下载下来,通过script标签引入
+    <!-- <script src="./JQsource/jquery-3.5.1.js"></script> -->
+    <script>
+      console.log($('div'));
+    </script>
+  </body>
+</html>

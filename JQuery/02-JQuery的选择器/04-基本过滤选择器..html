@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div>这是div1</div>
+      <div>这是div2</div>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+      <h1>这是h1</h1>
+      <h2>这是h2</h2>
+      <h3>这是h3</h3>
+    </div>
+    <div class="wrapper">这是一个p标签</div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      //eq(索引) 选择器
+      console.log($('li:eq(0)')); // 选择第三个li元素
+      console.log($('wrapper :eq(0)')); // 选择子元素中的第一个元素
+
+      //:first 选择器
+      console.log($('.wrapper:first')); // 选择第一个wrapper元素
+      console.log($('.wrapper :first')); // 选择第一个子元素
+
+      //:last 选择器
+      console.log($('.wrapper:last')); // 选择最后一个wrapper元素
+      console.log($('.wrapper :last')); // 选择最后一个子元素
+
+      //:even 选择器
+      console.log($('li:even')); // 选择所有的偶数li元素
+
+      //:odd 选择器
+      console.log($('li:odd')); // 选择所有的奇数li元素
+
+      // :lt 选择器 选择索引小于指定索引的元素
+      console.log($('li:lt(3)')); // 选择索引小于3的li元素
+
+      // :gt 选择器 选择索引大于指定索引的元素
+      console.log($('li:gt(3)')); // 选择索引大于3的li元素
+
+      // :header 选择器 选择所有的标题元素
+      console.log($('li:header')); // 选择所有的标题元素
+    </script>
+  </body>
+</html>

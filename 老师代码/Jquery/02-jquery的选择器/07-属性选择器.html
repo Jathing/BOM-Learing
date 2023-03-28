@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>这是一个h1标签</h1>
+    <h1 title="hello world">这是一个h1标签1</h1>
+    <h1 title="hello">这是一个h1标签2</h1>
+    <h1 title="world">这是一个h1标签3</h1>
+    <h1 title="hello jq">这是一个h1标签4</h1>
+    <p title="hello jq">这是一个p标签1</p>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        console.log($('h1[title]'));
+
+        console.log($('h1[title!=hello]'));
+        
+        // 以什么开头 ^
+        console.log($('h1[title^=h]'));
+        
+        // 以什么结尾 $
+        console.log($('h1[title$=q]'));
+
+        // 包含 *
+        console.log($('h1[title*=jq]'));
+       
+    </script>
+</body>
+</html>

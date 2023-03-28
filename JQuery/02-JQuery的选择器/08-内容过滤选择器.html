@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>这是一个h1标题</h1>
+    <h1 title="hello world">这是一个h1标题1</h1>
+    <h1 title="hello">这是一个h1标题2</h1>
+    <h1 title="world">这是一个h1标题3</h1>
+    <h1 title="hello jq">这是一个h1标题4jq</h1>
+    <p title="hello jq">这是一个h1标题</p>
+    <p>
+      这是一个p标签2
+      <span></span>
+    </p>
+    <p></p>
+    <div></div>
+    <span></span>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // :contains(内容) 选择器
+      console.log($('h1:contains(jq)')); // 选中所有包含hello的h1标签
+
+      // :empty 选择器 选中所有没有子元素的元素
+      console.log($('div:empty')); // 选中所有没有子元素的p标签
+
+      // :parent 选中内容不为空的元素
+      console.log($('p:parent')); // 选中所有内容不为空的p标签
+
+      // :has(选择器) 选中包含指定元素的元素
+      console.log($('p:has(span)')); // 选中所有包含span标签的p标签
+    </script>
+  </body>
+</html>
