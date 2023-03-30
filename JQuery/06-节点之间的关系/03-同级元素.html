@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="father">
+      <div class="son">
+        <p>
+          <span class="spanEle"></span>
+        </p>
+      </div>
+      <div class="daughter"></div>
+      <div class="son2"></div>
+    </div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      /*      
+        next() 被选元素的下一个同级元素
+        nextAll() 被选元素的所有跟随的同级元素
+        prev() 被选元素的前一个同级元素
+        prevAll() 被选元素的所有前面的同级元素
+        prevUntil() 被选元素的前面的同级元素，直到遇到指定的元素为止
+        nextUntil() 被选元素的后面的同级元素，直到遇到指定的元素为止 
+        siblings() 被选元素的所有同级元素
+      */
+
+      console.log($('.son').next());
+      console.log($('.son').nextAll());
+      console.log($('.son').prev());
+      console.log($('.son').prevAll());
+      console.log($('.son').prevUntil('.son'));
+      console.log($('.son').nextUntil('.son2'));
+    </script>
+  </body>
+</html>

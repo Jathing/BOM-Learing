@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        box
+    </div>
+    <button id="showBtn">点击显示</button>
+    <button id="hideBtn">点击隐藏</button>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 入口函数
+        $(function(){
+            // 第一种 show 和 hide 无参数版本------------
+            // ele.show()  显示元素
+            // ele.hide()  隐藏元素
+            // $('#showBtn').click(function(){
+            //     $('div').show();
+            // })
+
+            // $('#hideBtn').click(function(){
+            //     $('div').hide();
+            // })
+
+
+            // 第二种 show 和 hide 一个参数版本------------
+            // ele.show(参数)  显示元素 参数：从隐藏到显示经过的时间  ms
+            // ele.hide(参数)  隐藏元素 参数：从显示到隐藏经过的时间  ms
+            $('#showBtn').click(function(){
+                $('div').show(1000);
+            })
+
+            $('#hideBtn').click(function(){
+                $('div').hide(1000);
+            })
+
+            // 第二种 show 和 hide 两个参数版本------------
+            // ele.show(参数一，参数二)  显示元素 参数一：从隐藏到显示经过的时间  ms
+            // ele.hide(参数一，参数二)  隐藏元素 参数一：从显示到隐藏经过的时间  ms
+            // 参数二：动画执行完毕，立刻执行回调函数
+            $('#showBtn').click(function(){
+                $('div').show(2000,function(){
+                    console.log('显示完毕');
+                });
+            })
+
+            $('#hideBtn').click(function(){
+                $('div').hide(2000,function(){
+                    console.log('隐藏完毕');
+                });
+            })
+        })
+        
+       
+    </script>
+</body>
+</html>

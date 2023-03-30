@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        这是一个p标签
+    </p>
+    <input type="text" value="12345">
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // Dom获取标签里面的内容
+        // document.getElementsByTagName('p')[0].innerHTML;
+        // document.getElementsByTagName('p')[0].textContent;
+
+        // 通过jq获取标签里面的内容
+        // 获取内容：有标签 ele.html()
+        console.log($('p').html());
+
+        // 设置内容 会识别标签
+        $('p').html('<a>123</a>')
+
+        // 通过jq获取内容
+        console.log($('p').text());
+
+        // 设置内容 不会识别标签
+        console.log($('p').text('<a>123</a>'));
+
+
+       
+    </script>
+</body>
+</html>

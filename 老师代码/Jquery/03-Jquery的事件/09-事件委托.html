@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 需求:后面生成的节点是没有绑定事件的 -->
+    <ul>
+
+    </ul>
+    <button>点我生成li标签</button>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+
+    <script>
+        $('button').click(function(){
+            // 创建节点
+           var lis =  document.createElement('li');
+           lis.textContent = '这是新的li标签';
+            // 挂载节点
+            $('ul')[0].append(lis)
+        })
+
+        // 给li标签绑定点击事件
+        // 通过事件委托
+        // 通过on()
+        // 第一个参数是委托的事件类型
+        // 第二个参数是作用对象
+        // 第三个参数是监听
+        $('ul').on('click','li',function(e){
+            console.log(e);
+            console.log(123);
+        })
+
+       
+    </script>
+</body>
+</html>

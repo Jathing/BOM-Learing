@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul class="num1">
+      <li>1</li>
+      <li>2</li>
+      <li class="target">3</li>
+    </ul>
+    <ul class="num2">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <div class="box">
+      <div class="box2">
+        <p>我是一个p标签</p>
+      </div>
+    </div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // 节点的删除
+      // 1. remove() 删除当前节点
+      // 2. empty() 删除当前节点的子节点 
+      $('.target').remove();
+
+      $('.target').empty();
+
+      $('.box').empty();
+    </script>
+  </body>
+</html>

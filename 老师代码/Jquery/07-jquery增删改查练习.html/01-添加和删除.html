@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    内容：<input type="text">
+    <button>添加</button>
+    <!-- 空的div，將每一条数据放在div中 -->
+    <div>
+        <!-- <p></p> -->
+
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 添加功能
+        $('button').click(function(){
+            var values = $('input').val();
+            console.log(values);
+            // 创建节点，将获取到input框中的值放在节点上
+            var p = $(`<p>${values}<span>X</span> </p>`);
+            // 挂载节点
+            $('div').append(p);
+            // 清空input框
+            $('input').val('')
+
+        })
+
+        // 删除功能 借助事件委托
+        $('div').on('click','span',function(){
+            $(this).parent().remove();
+        })
+
+
+
+       
+    </script>
+</body>
+</html>

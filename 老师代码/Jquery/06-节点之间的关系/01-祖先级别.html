@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+            <p>
+                <span class="spanEle"></span>
+            </p>
+        </div>
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    
+    <script>
+        // parent()  拿到元素的直接父级
+        console.log($('.spanEle').parent());
+       
+        // parents()  拿到元素的祖先元素  到html标签
+        console.log($('.spanEle').parents());
+        
+        // parents('Ele')  拿到元素的祖先元素  到html标签
+        console.log($('.spanEle').parents('div'));
+
+        // parents('Ele')  拿到两个给定元素之间的祖先元素  不包含('.father')
+        console.log($('.spanEle').parentsUntil('.father'));
+
+
+       
+    </script>
+</body>
+</html>

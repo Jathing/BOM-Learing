@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 500px;
+            margin: 100px auto;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        ul li{
+            width: 80px;
+            margin: 6px;
+            float: left;
+        }
+        ul li img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <img src="../img-集原美/img1.jpg" alt="">
+        <ul>
+            <li><img src="../img-集原美/img1.jpg" alt=""></li>
+            <li><img src="../img-集原美/img2.jpg" alt=""></li>
+            <li><img src="../img-集原美/img3.jpg" alt=""></li>
+            <li><img src="../img-集原美/img4.jpg" alt=""></li>
+            <li><img src="../img-集原美/img5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $('li img').click(function(){
+            $('.wrapper>img').prop('src',$(this).prop('src'))
+        })
+
+    </script>
+</body>
+</html>

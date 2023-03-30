@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="num1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul class="num2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // Ele.wrap(wrap是节点) 表示用一个元素去包裹另一个元素 如果包裹对象是多个元素 每一个都包裹一次
+        var div = $('<div></div>');
+        $('.num1,.num2').wrap(div)
+
+        // Ele.wrapAll(wrap是节点) 表示用一个元素去包裹另一个元素 如果包裹对象是多个元素 一个标签全部包裹起来
+        $('.num1,.num2').wrapAll(div)
+       
+        // Ele.wrapInner(wrap是节点) 表示用一个元素去包裹对象的子元素
+        $('.num1').wrapInner(div)
+       
+    </script>
+</body>
+</html>

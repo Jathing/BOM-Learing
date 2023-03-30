@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="num1">
+        <li>1</li>
+        <li>2</li>
+        <li class="target">3</li>
+    </ul>
+    <ul class="num2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+       var newli = $('<li>newli</li>');
+       // 父级旧元素.prepend(新元素)   在旧元素的前面挂载一个新的子元素
+       $('.num1').prepend(newli);
+       // 父级旧元素.prepend(新元素)   把新元素放在父级旧元素的最前面
+       newli.prependTo('.num1');
+      
+       // 父级旧元素.append(新元素)   在旧元素的后面挂载一个新的子元素
+       $('.num1').append(newli);
+       // 父级旧元素.prepend(新元素)   把新元素放在父级旧元素的最后面
+       newli.appendTo('.num1');
+
+       
+       
+
+
+       
+    </script>
+</body>
+</html>

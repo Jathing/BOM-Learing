@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // hover事件  mouseover+mouseout
+        // 两个参数 
+        // 第一个参数是鼠标放上去触发的 
+        // 第二个参数是鼠标离开时触发的
+        $('div').hover(function(){
+            console.log(123);
+        },function(){
+            console.log(456);
+        })
+       
+    </script>
+</body>
+</html>

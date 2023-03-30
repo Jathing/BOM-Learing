@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    内容：<input type="text">
+    <button>添加</button>
+    <!-- 空的div，將每一条数据放在div中 -->
+    <div>
+        <!-- <p></p> -->
+
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 0-添加  1-编辑
+        var flag = 0;
+        var indexValue = null;
+        // 添加功能
+        $('button').click(function(){
+            // 添加
+            if(flag == 0){
+                var values = $('input').val();
+                console.log(values);
+                // 创建节点，将获取到input框中的值放在节点上
+                var p = $(`<p>${values}<span class='delete'>删除</span>&nbsp;&nbsp;&nbsp;<span class="edit">编辑</span>  </p>`);
+                // 挂载节点
+                $('div').append(p);
+                // 清空input框
+                $('input').val('')
+            }else{
+                // 编辑
+                console.log(1111);
+                var values = $('input').val();
+                console.log($('p'));
+                console.log($('p')[indexValue]);
+                $('p')[indexValue].innerHTML =  `${values}<span class='delete'>删除</span>&nbsp;&nbsp;&nbsp;<span class="edit">编辑</span>`;
+                // 编辑完成后，将flag赋值为0（添加）
+                flag = 0;
+                // button按钮变成添加
+                $('button').html('添加');
+                // input内容清空
+                $('input').val('')
+            }
+        })
+        // 删除功能 借助事件委托
+        $('div').on('click','span.delete',function(){
+            $(this).parent().remove();
+        })
+
+        // 编辑功能 借助事件委托
+        $('div').on('click','span.edit',function(){
+            console.log('当前是编辑状态');
+            // 改变当前状态
+            flag = 1;
+            // 找到编辑对应的下标
+            indexValue = $(this).parent().index();
+            console.log(indexValue);
+            console.log(this); 
+            // 通过下标取当前p标签里面的值
+            // this指向的编辑按钮  
+            // this.parentElement == p
+            // this.parentElement.firstChild.  == 文本节点
+            var targetValue = this.parentElement.firstChild.nodeValue;
+            console.log(targetValue);
+
+            // 拿到值可以对input值进行反显
+            $('input').val(targetValue);
+            $('button').html('编辑')
+
+        })
+
+
+
+
+
+       
+    </script>
+</body>
+</html>

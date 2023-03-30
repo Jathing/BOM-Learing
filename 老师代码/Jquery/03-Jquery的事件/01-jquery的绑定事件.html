@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,p{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+<!--     <script>
+        // 以前dom的绑定方式
+        var divs = document.getElementsByTagName('div')[0];
+        // 三种
+        // 1.html级别  写在开始标签内
+
+        // 2.Dom0 
+        // divs.onclick = function(){
+        //     console.log(123);
+        // }
+
+        // 3.Dom2  基于事件池
+        // divs.addEventListener('click',function(){
+
+        // })
+
+    </script> -->
+
+    <script>
+        // jq绑定方式1  直接绑定和不需要循环----------------------
+        // $('div').click(function(){
+        //     console.log(123);
+        // })
+
+        // jq绑定方式2-------------------------------------------
+        $('div').on('click',function(){
+            console.log(123);
+        })
+
+        // jq绑定方式2的演变
+        function fn(){
+            console.log(123);
+        }
+        // var res =  fn();
+        $('div').on('click',fn);
+ 
+        // 解绑事件
+        $('div').off('click',fn);
+
+        // jq的绑定方式3 通过bind绑定---------------------------
+        // 在jq 3.0被废除
+        // $('div').bind('click',function(){
+
+        // })
+
+        // jq的绑定方式4 通过one绑定
+            // 这个绑定只会执行一次
+         $('p').one('click',function(){
+            console.log(123);
+         })
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

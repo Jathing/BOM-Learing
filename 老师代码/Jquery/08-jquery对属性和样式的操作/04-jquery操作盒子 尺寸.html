@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 3px solid red;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>我是一个盒子</div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 获取盒子的宽高
+        console.log($('div').width());
+        console.log($('div').height());
+
+        // 设置盒子的宽高
+        console.log($('div').width('400px'));
+        console.log($('div').height('400px'));
+
+
+        // 盒子的内容宽高+padding
+        console.log($('div').innerWidth());
+        console.log($('div').innerHeight());
+
+        // 盒子的内容宽高+padding+border
+        console.log($('div').outerWidth());
+        console.log($('div').outerHeight());
+
+
+       
+    </script>
+</body>
+</html>

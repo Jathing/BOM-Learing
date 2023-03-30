@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 给div绑定多个事件 
+        // 绑定点击事件（click）  - 绑定鼠标移动（mousemove） - 绑定鼠标离开（mouseout）
+        // 在jq中  成为链式绑定
+        $('div').click(function(){
+            console.log('触发点击事件');
+        }).mousemove(function(){
+            console.log('触发鼠标悬停事件');
+        }).mouseout(function(){
+            console.log('触发鼠标离开事件');
+        })
+    </script>
+</body>
+</html>

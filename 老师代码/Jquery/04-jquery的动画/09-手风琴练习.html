@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width:1000px;
+            height:287px ;
+            margin: 100px auto;
+            overflow: hidden;
+
+        }
+        .wrapper ul{
+            width: 100%;
+            list-style: none;
+            overflow: hidden;
+
+        }
+        .wrapper ul li{
+            float: left;
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li><img src="./img-集原美/img1.jpg" alt=""></li>
+            <li><img src="./img-集原美/img2.jpg" alt=""></li>
+            <li><img src="./img-集原美/img3.jpg" alt=""></li>
+            <li><img src="./img-集原美/img4.jpg" alt=""></li>
+            <li><img src="./img-集原美/img5.jpg" alt=""></li>
+        </ul>
+
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $('li').mouseover(function(){
+            $(this).stop().animate({width:450},500).siblings().stop().animate({width:137},500)
+        }).mouseout(function(){
+            $('li').stop().animate({width:200},500)
+        })
+
+
+       
+    </script>
+</body>
+</html>

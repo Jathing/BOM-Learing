@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .br{
+            border: 3px solid black;
+        }
+        .color-green{
+            color: green;
+        }
+        .font-size-30{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div>我是一个盒子</div>
+    <button>点我</button>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // addClass     在被选元素上添加一个或者多个类名
+        // removeClass  在被选元素上删除一个或者多个类名
+        // toggleClass  在被选元素上有则添加  反之
+
+        $('div').addClass('br');
+        $('div').removeClass('br');
+        // 如果添加多个类名 用空格隔开 
+        $('div').addClass('br color-green');
+
+        $('button').click(function(){
+             $('div').toggleClass('font-size-30');
+        })
+       
+
+
+
+       
+    </script>
+</body>
+</html>

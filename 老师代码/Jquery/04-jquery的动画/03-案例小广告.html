@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>'
+    <style>
+        .box1{
+            width: 100px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -150px;
+        }
+        .box2{
+            width: 100px;
+            height: 300px;
+            background-color: yellow;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <span>
+            X
+        </span>
+    </div>
+    <div class="box2">
+        <span>
+            X
+        </span>
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $('span').click(function(){
+            // $(this)被点击到当前的span标签
+            // .parent()  指的是父级
+            // .hide(1000) 隐藏
+            $(this).parent().hide(1000)
+        })
+        
+    </script>
+</body>
+</html>

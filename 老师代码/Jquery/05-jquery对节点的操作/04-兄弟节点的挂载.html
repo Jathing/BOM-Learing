@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="num1">
+        <li>1</li>
+        <li>2</li>
+        <li class="target">3</li>
+    </ul>
+    <ul class="num2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+       var newli = $('<li>newli</li>');
+       
+        // 在目标元素后面挂载节点
+
+        //旧元素.after(新元素)  在目标元素后面挂载节点
+        $('.target').after(newli)
+
+        //新元素.insertAfter(旧元素) 把新元素挂载在旧元素后面
+        newli.insertAfter('.target')
+
+        //旧元素.after(新元素)  在目标元素前面挂载节点
+        $('.target').before(newli)
+
+        //新元素.insertAfter(旧元素) 把新元素挂载在旧元素前面
+        newli.insertBefore('.target')
+
+
+       
+    </script>
+</body>
+</html>

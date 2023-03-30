@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我</button>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $('button').click(function(){
+            console.log(123);
+        })
+        // 可以用代码来实现触发事件
+        // trigger('事件类型')
+        //语法： $('button').trigger('click')
+
+        setInterval(function(){
+            $('button').trigger('click')
+        },1000)
+       
+    </script>
+</body>
+</html>

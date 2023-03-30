@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul class="num1">
+      <li>1</li>
+      <li>2</li>
+      <li class="target">3</li>
+    </ul>
+    <ul class="num2">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      var newli = $('<li>这是一个li标签</li>');
+      // 节点的替换
+      // 1. replaceWith() 替换当前节点
+      // 2. replaceAll() 替换当前节点
+      //旧元素.replaceWith(新元素) 替换当前节点
+      $('.target').replaceWith(newli);
+
+      // 新元素.replaceAll(旧元素) 替换当前节点
+      newli.replaceAll($('.target'));
+    </script>
+  </body>
+</html>

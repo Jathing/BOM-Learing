@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 链式绑定
+        $('input').focus(function(){
+            console.log('获取焦点');
+        }).blur(function(){
+            console.log('失去焦点');
+            // dom节点获取input中的值 inputEle.value 
+            // jQuery  $('input').val()
+            console.log( $('input').val());
+        })
+       
+    </script>
+</body>
+</html>

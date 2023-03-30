@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* 动画 */
+            transition: all 3s linear;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+
+    <script>
+        // 在以前学习dom中，事件源this 
+        // 在jquery中 事件源$(this)
+        // this 指向的是事件源 是具体的dom节点
+        // 而$(this) 是jq给你封装好的this
+
+        // var divs = document.getElementsByTagName('div');
+        // for(var i = 0 ; i < divs.length;i++){
+        //     divs[i].onclick 
+        // }
+
+        $('div').mouseover(function(){
+            console.log(this);
+            console.log($(this));
+            // 使用原生Dom
+            this.style.width = '300px';
+            this.style.height = '300px';
+        }).mouseout(function(){
+            // 使用jq
+            $(this).css('width','100px');
+            $(this).css('height','100px');
+
+        }
+        )
+
+       
+    </script>
+</body>
+</html>

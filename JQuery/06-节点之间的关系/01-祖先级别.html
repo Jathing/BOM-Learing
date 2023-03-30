@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="father">
+      <div class="son">
+        <p>
+          <span class="spanEle"></span>
+        </p>
+      </div>
+    </div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      //parent() 获取当前节点的父节点
+      console.log($('.spanEle').parent());
+
+      //parents() 获取当前节点的所有父节点
+      console.log($('.spanEle').parents());
+
+      // parents('Ele') 获取当前节点的所有父节点中指定的节点
+      console.log($('.spanEle').parents('div'));
+
+      //parentsUntil() 获取当前节点的所有父节点中指定的节点之间的节点
+      console.log($('.spanEle').parentsUntil('.father'));
+    </script>
+  </body>
+</html>

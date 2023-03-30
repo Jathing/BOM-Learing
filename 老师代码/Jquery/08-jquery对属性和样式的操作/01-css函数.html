@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 之前学习dom的时候，使用的是Ele.style.color   添加的是行内样式 -->
+    <!-- 通过className  直接赋予类名 对属性class的直接赋值 会覆盖掉之前的 -->
+    <!-- 通过classList add()  remove() 是函数的调用  -->
+
+    <!-- jquery 可以直接修改 也可以对类名进行修改 -->
+    <!-- css()函数 -->
+    <!-- Ele.css('属性名'，'属性值') -->
+    <div></div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+
+    <script>
+        // 改变单个属性
+        $('div').css('background','yellow')
+
+        // 改变多个属性
+        $('div').css({'background':'yellow','height':'300px'})
+
+
+       
+
+    </script>
+</body>
+</html>

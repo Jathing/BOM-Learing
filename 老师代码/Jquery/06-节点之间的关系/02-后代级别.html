@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+            <p>
+                <span class="spanEle"></span>
+            </p>
+        </div>
+        <div class="daughter">
+
+        </div>
+    </div>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    
+    <script>
+        // .children()  拿到所有的直接子元素
+       console.log($('.father').children());
+
+        // .children(参数)  拿到所有的直接子元素(具体到某个子元素)
+       console.log($('.father').children('.daughter'));
+       
+       // .find(参数)   在后再中找到参数所对应的元素
+       console.log($('.father').find('.son'));
+
+
+       
+    </script>
+</body>
+</html>

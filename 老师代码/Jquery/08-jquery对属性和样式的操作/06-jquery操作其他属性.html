@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 属性：标准属性和非标准属性 -->
+    <!-- 在jq中 获取属性的方式2种 -->
+    <!-- attr()  prop() -->
+    <p id="pEle" score="100"></p>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 第一种方式  通过attr()获取
+        // 一个参数代表获取  两个参数代表设置
+        console.log($('p').attr('id'));
+        console.log($('p').attr('id','pName'));
+
+        // 检测元素里面没有的属性，返回undefined
+        console.log($('p').attr('name'));//undefined
+        console.log($('p').attr('name','wang'));//如果没有此属性，可以添加设置
+
+        // 第二种方式 prop()  用法一样
+        console.log($('p').prop('id'));
+        console.log($('p').prop('id','idName'));
+        console.log($('p').attr('class','wang'));//如果没有此属性，可以添加设置
+
+        // 区别：
+        // 1.对于非标准属性来说 使用attr()  对于标准属性 使用prop()
+        // 2.prop 如果有对应的属性值 返回的指定是属性值 如果没有 返回的是一个空字符串
+        // 2.attr 如果有对应的属性值 返回的指定是属性值 如果没有 返回的是一个undefined
+        // 4.true  false   checked   使用prop()
+
+       
+    </script>
+</body>
+</html>

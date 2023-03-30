@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <p>这是一个p标签</p>
+    <input type="text" value="12345" />
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // DOM获取内容
+      // document.querySelector('p').innerHTML
+      // document.querySelector('p').textContent
+
+      // 通过JQuery获取内容
+      // 获取内容:有标签 ele.html()
+      console.log($('p').html());
+
+      // 设置标签
+      $('p').html('<span>这是一个span标签</span>');
+
+      // 获取内容:无标签 ele.text()
+      console.log($('p').text());
+      // 设置内容 不会解析标签
+      console.log($('p').text(<a>123</a>));
+    </script>
+  </body>
+</html>

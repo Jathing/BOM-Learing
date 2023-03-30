@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #s1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        #s2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="s1">
+        这是s1
+        <div id="s2">
+            这是s2
+        </div>
+    </div>
+    <!-- mouseenter()   鼠标的进入事件 -->
+    <!-- mouseover()    鼠标的进入（悬停）事件   事件冒泡 -->
+    <!-- mouseleave()   鼠标离开事件 -->
+    <!-- mouseout()     鼠标脱离事件 -->
+
+
+
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $('#s1').mouseleave(function(){
+            console.log('s1鼠标离开事件');
+        })
+        $('#s2').mouseleave(function(){
+            console.log('s2鼠标离开事件');
+        })
+
+
+        // 事件冒泡
+        $('#s1').mouseout(function(){
+            console.log('s1鼠标脱离事件');
+        })
+        $('#s2').mouseout(function(e){
+            e.stopPropagation(); //阻止事件冒泡
+            console.log('s2鼠标脱离事件');
+        })
+       
+    </script>
+</body>
+</html>

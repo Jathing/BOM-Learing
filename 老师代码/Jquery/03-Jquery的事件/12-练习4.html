@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .none{
+            display: none;
+            color: red;
+        }
+        
+    </style>
+</head>
+<body>
+    账号：<input type="text" id="username">
+    <p class="none">该账户不存在</p>
+    <br>
+    密码：<input type="password" id="password">
+    <p class="none">密码错误</p>
+    
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 账户
+        $('#username').blur(function(){
+            // 在失去焦点时判定账户是否存在
+            if($(this).val() != 'admin'){
+                $('p')[0].style.display='block';
+            }else{
+                $('p')[0].style.display='none';
+            }
+        })
+
+        // 密码
+        $('#password').blur(function(){
+            // 在失去焦点时判定账户是否存在
+            if($(this).val()!='123456' || $('#username').val()!='admin'){
+                $('p')[1].style.display='block';
+            }else{
+                $('p')[1].style.display='none';
+            }
+        })
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        height: 27px;
+        width: 150px;
+        display: flex;
+        list-style: none;
+      }
+      li {
+        height: 27px;
+        width: 27px;
+        background-image: url(../综合案例实战一/images/start.gif);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+      }
+      p {
+        display: inline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <p>当前你的评分是:</p>
+    <span></span>
+    <script src="../../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // 定义一个变量,用来记录是否被点击的状态
+      var flag = false;
+
+      // 鼠标移入li,li前面的li变亮,后面的li变暗
+      $('li').mouseenter(function () {
+        if (flag) {
+          return;
+        } else {
+          // 获取当前移入的li的索引
+          var index = $(this).index();
+          // console.log(index);
+          // 让当前移入的li前面的li变亮
+          $(this).prevAll().css('background-position', '0 -30px');
+          // 让当前移入的li后面的li变暗
+          $(this).nextAll().css('background-position', '0 0');
+          // 让当前移入的li变亮
+          $(this).css('background-position', '0 -30px');
+          // 显示分数
+          $('span').text(index + 1);
+        }
+      });
+
+      // 1. 点击星星，点击位置前面的星星亮起来,后面的星星变暗,并且显示当前的评分
+      $('li').click(function () {
+        // 获取当前点击的li的索引
+        var index = $(this).index();
+        // console.log(index);
+        // 让当前点击的li前面的li变亮
+        $(this).prevAll().css('background-position', '0 -30px');
+        // 让当前点击的li后面的li变暗
+        $(this).nextAll().css('background-position', '0 0');
+        // 让当前点击的li变亮
+        $(this).css('background-position', '0 -30px');
+        // 显示当前的评分
+        $('span').text(index + 1);
+        // 让flag变为true
+        flag = true;
+      });
+
+      
+    </script>
+  </body>
+</html>

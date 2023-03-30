@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul class="num1">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ul class="num2">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      var newli = $('<li>这是一个li标签</li>');
+
+      // 旧元素.after(新元素) 在目标节点后面挂载节点
+      $('.targrt').after(newli);
+
+      // 新选组.insertAfter(旧选组) 在目标节点后面挂载节点
+      newli.insertAfter($('.targrt'));
+
+      // 旧元素.before(新元素) 在目标节点前面挂载节点
+      $('.targrt').before(newli);
+
+      // 新选组.insertBefore(旧选组) 在目标节点前面挂载节点
+      newli.insertBefore($('.targrt'));
+    </script>
+  </body>
+</html>

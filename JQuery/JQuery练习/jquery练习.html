@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .del {
+        color: red;
+      }
+      .edit {
+        color: red;
+      }
+      span {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      p {
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 内容: input框 编辑按钮 点击按钮之后在下方显示出来 并且可以删除和编辑(编辑和删除是红色)
+    点击编辑数据回显到input框中 点击删除删除当前数据  -->
+    <div class="box">
+      内容: <input type="text" id="input" />
+      <button id="btn">添加</button>
+      <script src="../JQsource/jquery-3.5.1.js"></script>
+    </div>
+
+    <script>
+      // 1.点击编辑按钮,获取当前内容,并且显示到input框中,并清除input框中的内容
+      $('#btn').click(function () {
+        var input = $('#input').val();
+        var newEle = $(
+          `<div class="new" > <p>${input}</p> <span class="del">删除</span><span class="edit">编辑</span></div>`
+        );
+        $('.box').append(newEle);
+        $('#input').val('');
+      });
+      // 2.点击删除按钮,删除当前内容,并清楚input框中的内容
+      $('.box').on('click', '.del', function () {
+        $(this).parent().remove();
+        $('#input').val('');
+      });
+      // 3.点击编辑按钮,获取当前内容,并且显示到input框中,并且不显示编辑和删除
+      $('.box').on('click', '.edit', function () {
+        var input = $(this).siblings('p').text();
+        $('#input').val(input);
+        $(this).parent().remove();
+      });
+    </script>
+  </body>
+</html>

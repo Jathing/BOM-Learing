@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // Dom创建节点
+        // document.createElement('p')
+       
+        // jQuery创建节点
+        $('<p>这是一个p标签</p>');
+
+        // 携带变量创建
+        var a = 123;
+       var newp =  $(`<p>这是一个p标签${a}</p>`);
+       console.log(newp);
+
+       //  挂载节点
+       $('.box').prepend(newp)
+
+
+    </script>
+</body>
+</html>
