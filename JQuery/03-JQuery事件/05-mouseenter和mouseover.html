@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #s1 {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin-top: 10px;
+      }
+      #s2 {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="s1">
+      这是s1
+      <div id="s2">这是s2</div>
+    </div>
+    <!-- mouseover()和mouseenter()的区别  -->
+    <!-- mouseover()是鼠标移入移出都会触发 -->
+    <!-- mouseenter()是鼠标移入才会触发 -->
+
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      $('#s1').mouseenter(function () {
+        console.log('s1触发鼠标移入事件');
+      });
+      $('#s2').mouseenter(function () {
+        console.log('s2触发鼠标移入事件');
+      });
+
+      $('#s1').mouseover(function () {
+        console.log('s1触发鼠标悬停事件');
+      });
+      $('#s2').mouseover(function (e) {
+        e.stopPropagation(); //阻止冒泡
+
+        console.log('s2触发鼠标悬停事件');
+      });
+    </script>
+  </body>
+</html>

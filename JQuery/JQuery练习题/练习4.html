@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        width: 200px;
+        height: 30px;
+        margin: 20px;
+      }
+      div {
+        margin-left: 60px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 
+      现在页面上有两个输入框，一个账号，一个密码
+      账号是admin 密码是123456
+      当你输入完账号的时候，失去焦点后，会立马判断当前账号是否正确，
+      如果不正确,在输入框的下方会出现一行红字提示账号不存在，
+      当你输入完密码的时候，如果账号和密码都正确，则会在输入框下方提示密码正确，
+      如果密码错误，也会提示密码错误
+      提示:dom节点获取input输入值的方式是.value jg包装后的节点获取方式是.val()    
+    -->
+    账号&nbsp<input type="text" /><br />
+    密码&nbsp<input type="password" />
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      $('input[type=text]')
+        .blur(function () {
+          if ($(this).val() != 'admin') {
+            $(this).after('<div style="color:red">账号不存在</div>');
+          }
+        })
+        .focus(function () {
+          $('div').remove();
+        });
+      $('input[type=password]')
+        .blur(function () {
+          if (
+            $(this).val() == '123456' &&
+            $('input[type=text]').val() == 'admin'
+          ) {
+            $(this).after('<div style="color:green">密码正确</div>');
+          } else {
+            $(this).after('<div style="color:red">密码错误</div>');
+          }
+        })
+        .focus(function () {
+          $('div').remove();
+        });
+    </script>
+  </body>
+</html>

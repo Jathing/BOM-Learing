@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 页面上有一个盒子，当你鼠标进入的时候 背景色变成蓝色，离开的时候变成红色 默认红色(mouseover,mouseout)  -->
+    <div class="box"></div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      $('.box')
+        .mouseover(function () {
+          $(this).css('background-color', 'blue');
+        })
+        .mouseout(function () {
+          $(this).css('background-color', 'red');
+        });
+    </script>
+  </body>
+</html>

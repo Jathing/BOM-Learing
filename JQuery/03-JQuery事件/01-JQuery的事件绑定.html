@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // 以前的dom的事件绑定
+      // var divs = document.getElementsByTagName("div")[0]
+      // 三种
+      // 1.html级别 写在标签上
+      // 2.dom级别
+      // divs.onclick = function () {
+      //   alert("hello")
+      // }
+      // 3.事件级别
+      // divs.addEventListener("click", function () {
+      //   alert("hello")
+      // })
+
+      // jq的绑定方式一
+      $('div').click(function () {
+        console.log(123);
+      });
+
+      // jq的绑定方式二
+      $('div').on('click', function () {
+        console.log(456);
+      });
+
+      // jq绑定方式2的演变
+      function fn() {
+        console.log(789);
+      }
+      $('div').on('click', fn);
+
+      // jq的解绑方式
+      $('div').off('click', fn);
+
+      // jq的绑定方式三
+      // 在新版本的jq中，不推荐使用bind方法
+      $('div').bind('click', function () {
+        console.log(101112);
+      });
+
+      // jq绑定方式四 通过one绑定的事件，只能触发一次
+      $('div').one('click', function () {
+        console.log(114514);
+      });
+    </script>
+  </body>
+</html>

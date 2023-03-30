@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>box</div>
+    <button class="btn">点击切换</button>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    
+    <script>
+        // toggle()作用：点击切换的时候，如果是隐藏则显示，反之
+        // toggle(参数1,参数2,参数3)
+        // 参数1：动画时长
+        // 参数2：运动速率
+        // 参数3：完成动画后执行的回调函数
+
+        $('.btn').click(function(){
+            $('div').toggle(2000,'linear',function(){
+                console.log('切换完成');
+            })
+        })
+       
+    </script>
+</body>
+</html>

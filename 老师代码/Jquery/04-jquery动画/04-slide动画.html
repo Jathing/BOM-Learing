@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color:yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button class="upBtn">点我上滑</button>
+    <button class="downBtn">点我下滑</button>
+    <button class="changeBtn">点我切换</button>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // slide 滑动
+        // slideUp()       上滑
+        // slideDown()     下滑
+        // slidetoggle()   切换
+
+        // 参数1：动画时长
+        // 参数2：运动速率
+        // 参数3：完成动画后执行的回调函数
+
+        
+        $('.upBtn').click(function(){
+            $('div').slideUp(3000,'linear',function(){
+                console.log('上滑执行完毕');
+            })
+        })
+
+        $('.downBtn').click(function(){
+            $('div').slideDown(3000,'linear',function(){
+                console.log('下滑执行完毕');
+            })
+        })
+
+        $('.changeBtn').click(function(){
+            $('div').slideToggle(1000,'linear',function(){
+                console.log('切换执行完毕');
+            })
+        })
+
+
+       
+    </script>
+</body>
+</html>

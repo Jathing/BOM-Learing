@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>box</div>
+    <button id="showBtn">点击显示</button>
+    <button id="hidenBtn">点击隐藏</button>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // 入口函数
+      $(function () {
+        // 无参数版本
+        // 1.点击按钮显示盒子
+        // $('#showBtn').click(function () {
+        //   $('div').show();
+        // });
+        // // 2.点击按钮隐藏盒子
+        // $('#hidenBtn').click(function () {
+        //   $('div').hide();
+        // });
+
+        // 1.点击按钮显示盒子 3000ms
+        // 从隐藏到显示经过的时间
+        // $('#showBtn').click(function () {
+        //   $('div').show(3000);
+        // });
+        // // 2.点击按钮隐藏盒子
+        // $('#hidenBtn').click(function () {
+        //   $('div').hide(3000);
+        // });
+        // 两个参数的版本
+        // 参数1：时间 参数2：回调函数
+        $('#showBtn').click(function () {
+          $('div').show(3000, function () {
+            alert('显示完毕');
+          });
+        });
+        // 2.点击按钮隐藏盒子
+        $('#hidenBtn').click(function () {
+          $('div').hide(3000, function () {
+            alert('隐藏完毕');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

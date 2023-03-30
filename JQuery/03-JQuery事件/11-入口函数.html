@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 当我们dom节点加载完毕的时候,去执行,避免拿不到dom节点的情况 -->
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // window.onload = function () {
+      $(function () {
+        // 当dom节点加载完毕的时候,去执行
+        console.log('dom节点加载完毕');
+      });
+
+      // ready事件
+      // $(document).ready(function () {
+      //   console.log('dom节点加载完毕');
+      // });
+
+      $().ready(function () {
+        console.log('dom节点加载完毕');
+      });
+    </script>
+  </body>
+</html>

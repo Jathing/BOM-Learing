@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>
+        点我
+    </button>
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // animate 改变数值类型
+        // 有四个参数 ：
+        // params  表示你要切换的样式 这个参数是一个对象
+        // speed   时间
+        // 速率
+        // 回调函数
+        $('button').click(function(){
+            $('div').animate({width:'400px',height:'400px'},1000,'linear',function(){
+                console.log('执行完毕');
+            })
+
+        })
+       
+    </script>
+</body>
+</html>

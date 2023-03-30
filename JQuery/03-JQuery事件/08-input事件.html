@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" />
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // input事件
+      // 当input框中的内容发生改变的时候，就会触发input事件
+      // 一般用于表单验证
+      $('input')
+        .focus('input', function () {
+          console.log('获取焦点');
+        })
+        .blur('input', function () {
+          console.log('失去焦点');
+          // dom节点获取input框中的内容
+          
+          console.log($('input').val())
+        })
+        .change('input', function () {
+          console.log('内容发生改变');
+        });
+    </script>
+  </body>
+</html>

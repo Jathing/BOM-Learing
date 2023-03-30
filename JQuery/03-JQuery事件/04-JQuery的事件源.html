@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transition: all 3s linear;
+      margin-top: 10px;
+    }
+  </style>
+
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // 在以前的学习dom中,事件源this
+      // 在jquery中,事件源是$(this)
+      // 事件源:触发事件的元素 是具体的dom元素
+      var divs = document.getElementsByTagName('div');
+      for (var i = 0; i < divs.length; i++) {
+        divs[i].onclick = function () {
+          console.log(this);
+        };
+      }
+
+      $('div')
+        .mouseover(function () {
+          console.log(this);
+          console.log($(this));
+
+          //使用原生js的方式
+          this.style.width = '300px';
+          this.style.height = '300px';
+        })
+        .mouseout(function () {
+          $(this).css('width', '100px');
+          $(this).css('height', '100px');
+        });
+    </script>
+  </body>
+</html>

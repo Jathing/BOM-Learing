@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- // 需求: 后面生成的节点是没有绑定事件的，所以需要使用事件委托 -->
+    <ul></ul>
+    <button>点我生成li</button>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      $('button').click(function () {
+        var lis = document.createElement('li');
+        lis.textContent = '我是新生成的li';
+
+        // 生成li
+        $('ul')[0].append(lis);
+      });
+
+      // 事件委托 通过on方法来绑定事件
+      //  第一个参数是事件类型 第二个参数是作用对象 第三个参数是监听
+
+      $('ul').on('click', 'li', function () {
+        console.log('li被点击了');
+      });
+    </script>
+  </body>
+</html>

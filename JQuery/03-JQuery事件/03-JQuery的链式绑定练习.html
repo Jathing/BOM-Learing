@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        transition: all 3s linear;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div></div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // 需求 当鼠标移入div的时候，宽高变为300px
+      // 当鼠标移出div的时候，再变为原样
+      $('div')
+        .mouseover(function () {
+          $('div')[0].style.width = '300px';
+          $('div')[0].style.height = '300px';
+        })
+        .mouseout(function () {
+          $('div')[0].style.width = '100px';
+          $('div')[0].style.height = '100px';
+        });
+    </script>
+  </body>
+</html>

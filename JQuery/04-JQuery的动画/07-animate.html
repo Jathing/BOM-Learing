@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div></div>
+    <button>点我</button>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // animate() 用于自定义动画
+      // params 第一个参数是一个对象，里面是要改变的属性和值
+      // speed  第二个参数是动画执行的时间
+      // 第三个参数是动画执行的速度
+      // 第四个参数是动画执行完毕后的回调函数
+
+      $('button').click(function () {
+        $('div').animate(
+          // 只能改变数字类型的属性
+          {
+            width: '200px',
+            height: '200px',
+          },
+          1000,
+          'linear',
+          function () {
+            alert('动画完成');
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

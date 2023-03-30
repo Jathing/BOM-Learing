@@ -1,25 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    用户名: <input type="text" name="username" /> <br /><br />
+    密&nbsp;码: <input type="password" name="pwd" disabled /><br />
+    <br />
+    性&nbsp;别: <input type="radio" name="sex" /> 男
+    <input type="radio" name="sex" /> 女
+    <br />
+    <br />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+    爱&nbsp;好:
 
-<body>
+    <input type="checkbox" name="hobby" value="music" /> 音乐
+    <input type="checkbox" name="hobby" value="tennis" /> 网球
+    <input type="checkbox" name="hobby" value="football" /> 足球
+    <input type="checkbox" name="hobby" value="basketball" /> 篮球
+    <input type="checkbox" name="hobby" value="badminton" /> 羽毛球
+    <input type="checkbox" name="hobby" value="sleep" /> 睡觉
+    <br />
+    <br />
 
-  用户名: <input type="text" name="username">
-  <br><br>
-  
-  密&nbsp;码: <input type="password" name="pwd" disabled><br>
+    学&nbskp;历:
+    <select>
+      <option>高中</option>
+      <option>大学</option>
+      <option>研究生在读</option>
+      <option>博士</option></select
+    ><br />
+    <br />
+    请输入您的意见或者建议：
+    <br />
+    <textarea></textarea><br /><br />
+    上传头像：
 
-  
+    <input type="file" name="" id="" /><br />
 
-  <script>
-    
-  </script>
-</body>
+    <input type="hidden" name="" value="http://www.baidu.cn" />
+    <br />
+    <br />
+    <input type="submit" value="确定" />
+    <input type="reset" value="重置" />
+    <input type="button" value="普通按钮" />
+    <br /><br />
+    <div class="search">
+      <input type="text" />
+      <input
+        type="image"
+        src="https://img2.baidu.com/it/u=1404596068,2549809832&fm=253&fmt=auto&app=120&f=JPEG?w=1067&h=800"
+        alt="搜索"
+        width="400"
+        height="300"
+      />
+    </div>
 
+    <script src="../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+      // :input 选中所有的表单元素
+      console.log($(':input'));
+
+      // :input 选中所有的文本框元素
+      console.log($(':text'));
+
+      // :input 选中所有的密码框元素
+      console.log($(':password'));
+
+      // :input 选中所有的单选框元素
+      console.log($(':radio'));
+
+      // :input 选中所有的复选框元素
+      console.log($(':checkbox'));
+
+      // :input 选中所有的提交元素
+      console.log($(':submit'));
+
+      // :input 选中所有的重置元素
+      console.log($(':reset'));
+
+      // :input 选中所有的按钮元素
+      console.log($(':button'));
+
+      // 获取到所有的禁用的元素
+      console.log($(':disabled'));
+
+      // 获取到所有的不被禁用的元素
+      console.log($(':enabled'));
+
+      // 获取到下拉框被选中的元素
+      console.log($(':selected'));
+    </script>
+  </body>
 </html>

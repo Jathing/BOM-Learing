@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 100px;
+        height: 300px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        position: absolute;
+
+        right: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box1">
+      <span>x</span>
+    </div>
+    <div class="box2">
+      <span>x</span>
+    </div>
+
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      $('span').click(function () {
+        $(this).parent().hide(1000);
+      });
+    </script>
+  </body>
+</html>
