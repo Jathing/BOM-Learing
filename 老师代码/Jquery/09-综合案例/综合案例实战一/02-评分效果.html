@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 150px;
+            margin: 100px auto;
+        }
+        .wrapper ul{
+            list-style: none;
+        }
+        ul li{
+            width: 27px;
+            height: 27px;
+            float: left;
+            background: url(./images/start.gif);
+        }
+        ul li.on{
+            background-position: left bottom;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul>
+            <li class="on"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p>你的当前评分是：<span>1</span></p>
+
+    </div>
+    <script src="../../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    
+    <script>
+        // 1.鼠标悬停事件
+        $('li').mouseover(function(){
+            // 1.鼠标悬停之前的都要亮起来 
+            // 2.需要拿到当前事件源的索引
+            // 3.lt gt
+            var li_index = $(this).index();
+            // 拿到索引添加属性
+            $(`li:lt(${li_index + 1})`).addClass('on')
+        }).mouseout(function(){
+            // 我们要根据评分去决定谁亮 需要拿到评分
+           var li_index = parseInt($('span').html());
+           // 让其余的星星灭掉  大于评分-1 （索引） >索引全部灭掉
+           $(`li:gt(${li_index - 1})`).removeClass('on')
+        }).click(function(){
+            var li_index =  $(this).index();
+            $('span').html(li_index + 1)
+        })
+    </script>
+</body>
+</html>

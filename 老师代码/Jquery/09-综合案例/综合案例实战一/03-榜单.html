@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 100px;
+            background: blue;
+            color: #fff;
+            margin: 100px auto;
+            padding: 5px;
+        }
+        ul{
+            list-style: none; 
+        }
+        .wrapper ul{
+            list-style: none;
+            margin-left: 10px;
+
+        }
+        .wrapper>li span{
+            background: url(./images/close.gif) no-repeat left center;
+            padding-left: 20px;
+        }
+        .wrapper>li span.on{
+            background: url(./images/open.gif) no-repeat left center;
+            padding-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="wrapper">
+        <li>
+            <span>事件</span>
+            <ul>
+                <li>最近</li>
+                <li>上周</li>
+                <li>上月</li>
+            </ul>
+        </li>
+        <li>
+            <span>娱乐</span>
+            <ul>
+                <li>最近</li>
+                <li>上周</li>
+                <li>上月</li>
+            </ul>
+        </li>
+        <li>
+            <span>任务</span>
+            <ul>
+                <li>最近</li>
+                <li>上周</li>
+                <li>上月</li>
+            </ul>
+        </li>
+    </ul>
+    <script src="../../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // 1.给span添加点击事件
+        $('span').click(function(){
+            //toggleClass()  切换图片并且切换了状态 点击的时候添加或者删除类名
+            //slideToggle() 点击的时候收起和展开
+            //next() 找到被选元素的下一个兄弟 
+            $(this).toggleClass('on').next().slideToggle();
+        
+            // parent()  找到被选元素的父级
+            // siblings()   找到被选元素的兄弟
+            // children('ul')  找到兄弟元素为ul的子元素
+            // slideUp()  收起
+            // prev()   找到被选元素的上一个兄弟
+            // removeClass()  移除类名
+            $(this).parent().siblings().children('ul').slideUp().prev().removeClass('on')
+        
+        })
+       
+    </script>
+</body>
+</html>

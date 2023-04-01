@@ -18,6 +18,7 @@
         justify-content: center;
         align-items: center;
         margin: 100px auto;
+        list-style: none;
       }
 
       li {
@@ -25,7 +26,6 @@
         height: 100px;
         background-color: gray;
         margin: 0 10px;
-        list-style: none;
         border-radius: 50%;
         border: 5px solid greenyellow;
       }
@@ -44,9 +44,12 @@
     <script>
       // 1. 点击灯泡，灯泡亮起来
       $('li').click(function () {
-        $(this).css('background-color', 'yellow');
+        // $(this).css('background-color', 'yellow');
         // 使用排他思想
-        $(this).siblings().css('background-color', 'gray');
+        // $(this).siblings().css('background-color', 'gray');
+
+        //  改成链式编程
+        $(this).css('background-color', 'yellow').siblings().css('background-color', 'gray');
       });
     </script>
   </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="../../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      //滚动事件
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > $(window).height()) {
+          $('.backTop').fadeIn();
+        } else {
+          $('.backTop').fadeOut();
+        }
+      });
+      //点击事件
+      $('.backTop').click(function () {
+        // $('html,body').scrollTop(0);
+        $('html,body').animate({ scrollTop: 0 }, 1000);
+      });
+    </script>
+  </body>
+</html>

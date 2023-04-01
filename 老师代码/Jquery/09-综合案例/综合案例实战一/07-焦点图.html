@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #banner{
+            width: 650px;
+            height: 250px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #banner ul{
+            width: 650px;
+            height: 250px;
+            list-style: none;
+        }
+        #banner ul li{
+            width: 650px;
+            height: 250px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #banner ol{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            list-style: none;
+            z-index: 9999;
+        }
+        #banner ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background-color: #333333;
+            color: gray;
+            margin-left: 5px;
+            border: 1px solid gray;
+            font-weight: bold;
+            cursor: pointer;
+
+        }
+        #banner ol li.on{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            color: orange;
+            border: 1px solid orange;
+            margin-top: -10px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li><img src="./images/game/01.jpg" alt=""></li>
+            <li><img src="./images/game/02.jpg" alt=""></li>
+            <li><img src="./images/game/03.jpg" alt=""></li>
+            <li><img src="./images/game/04.jpg" alt=""></li>
+            <li><img src="./images/game/05.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li class="on">5</li>
+        </ol>
+    </div>
+    <script src="../../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+   
+    <script>
+        var z_index = 0;
+        $('ol li').mouseover(function(){
+            $(this).addClass('on').siblings().removeClass('on');
+            // 拿到对应序号的索引
+            var index = $(this).index();
+            // 先让你的图片滑动到最右边 然后从右往左 left:650-0  用2s时间
+            $('ul li').eq(index).css({left:650,zIndex:++z_index}).stop().animate({left:0},2000)
+        })
+
+
+
+       
+    </script>
+</body>
+</html>

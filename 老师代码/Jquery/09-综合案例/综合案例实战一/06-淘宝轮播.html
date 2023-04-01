@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #ad {
+            width: 250px;
+            height: 250px;
+            border: 1px solid red;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #ad ol {
+            list-style: none;
+            width: 49px;
+            border-right: 1px solid red;
+            float: left;
+        }
+
+        #ad ol li {
+            border-bottom: 1px solid red;
+            height: 27px;
+            text-align: center;
+            background: pink;
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 27px;
+        }
+
+        #ad ol li.on {
+            background: #fff;
+        }
+
+        #ad ul li {
+            display: none;
+        }
+
+        #ad ul li.on {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ad">
+        <!-- 左侧部分 -->
+        <ol>
+            <li class="on">女靴</li>
+            <li>雪地靴</li>
+            <li>冬裙</li>
+            <li>呢大衣</li>
+            <li>毛衣</li>
+            <li>棉服</li>
+            <li>女裤</li>
+            <li>羽绒服</li>
+            <li>牛仔裤</li>
+        </ol>
+        <!-- 右侧部分 -->
+        <ul>
+            <li class="on"><a href=""><img src="./images/taobao/女靴.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/雪地靴.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/冬裙.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/呢大衣.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/毛衣.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/棉服.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/女裤.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/羽绒服.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/taobao/牛仔裤.jpg" alt=""></a></li>
+        </ul>
+
+    </div>
+    <script src="../../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+
+    <script>
+        // 需求1：自动轮播
+        // 1.定时器 先初始化 全局变量
+        var timer = null;
+        // 2.初始化索引
+        var index = 0;
+
+        // 定时器
+        // 封装定时器，为了重复调用
+        function go() {
+            timer = setInterval(function () {
+                index++;
+                if (index >= $('ol li').length) {
+                    index = 0;
+                }
+                // 添加和移除激活样式
+                $('ul li').eq(index).addClass('on').siblings().removeClass('on');
+                $('ol li').eq(index).addClass('on').siblings().removeClass('on');
+
+            }, 1000);
+        }
+        go();
+
+
+        // 需求2：当你鼠标放在上面的时候 停止轮播
+        $('#ad').mouseover(function () {
+            // 清除定时器
+            clearInterval(timer);
+        }).mouseout(function () {
+            go();
+        })
+
+        // 需求3：当鼠标放在左侧li标签的时候 右侧相应改变
+        $('ol li').mouseover(function(){
+            // 获取到鼠标悬停的索引
+            index = $(this).index();
+            // 添加和移除激活样式
+            $('ul li').eq(index).addClass('on').siblings().removeClass('on');
+            $('ol li').eq(index).addClass('on').siblings().removeClass('on');
+
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 400px;
+            height: 120px;
+            border: 10px solid pink;
+            margin: 50px auto;
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        ul li {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-left: 25px;
+        }
+
+        ul li img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        div {
+            width: 280px;
+            height: 180px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><img src="./images/1.png" alt=""></li>
+        <li><img src="./images/2.png" alt=""></li>
+        <li><img src="./images/3.png" alt=""></li>
+    </ul>
+    <div>
+        <img src="./images/1.png" alt="">
+    </div>
+</body>
+<script src="../../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+<script>
+    $('li').hover(function () {
+        // 鼠标悬停
+        $('div').fadeIn(100);
+        $('div img').prop('src',$(this).find('img').prop('src'));
+
+    }, function () {
+        // 鼠标拖离
+        $('div').fadeOut(100);
+    })
+
+    // 需求2:鼠标移动的时候   div跟着鼠标右下角移动
+    $('li').mousemove(function(e){
+        // 在事件对象evnet中 pageX  pageY 鼠标当前的坐标
+        console.log(e);
+        var x = e.pageX + 10;
+        var y = e.pageY + 10;
+        // 把这个值赋值给div的offset（偏移量） 相对于视口
+        $('div').offset({left:x,top:y})
+    })
+
+
+
+
+</script>
+
+</html>

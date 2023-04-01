@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .ad {
+            width: 100px;
+            height: 250px;
+            background: yellow;
+            position: absolute;
+        }
+
+        .ad_left {
+            left: 0;
+            top: 0;
+        }
+
+        .ad_right {
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./images/content.png" alt="" class="content">
+    <div class="ad ad_left"><span>X</span></div>
+    <div class="ad ad_right"><span>X</span></div>
+    <script src="../../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        // top=卷去的高度 + （视口高度-自身高度）/2
+        // 页面滚动事件  $(window)  $(document)
+
+        // 封装成一个函数
+
+        function go(){
+            // var topValue = $(window).scrollTop() + $(window).height() / 2 - $('.ad').height() / 2;
+            // console.log(topValue);
+            // $('.ad').animate({top:topValue},1000)
+            var top = $(window).scrollTop() + $(window).height() / 2 - $('.ad').height() / 2;
+            console.log(top);
+            // 属性名和属性值保持一致的时候 只写一个top就可以了
+            $('.ad').stop().animate({top},1000)
+        }
+        // 一进页面执行一次，算出top值，滚动到页面中间位置
+        go()
+
+        // 监听页面滚动的时候再执行一次
+        $(window).scroll(go)
+        
+    </script>
+</body>
+
+</html>

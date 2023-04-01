@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 80px;
+            height: 80px;
+            border: 1px solid red;
+            /* margin: 20px; */
+
+        }
+
+        .yellow {
+            border: none;
+            /* margin: 5px; */
+            width: 70px;
+            height: 70px;
+            font-size: 14px;
+            background-color: yellow;
+
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div>
+        <div class="yellow">我是导航</div>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="./../../js/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $(window).scroll(function () {
+            console.log($(window).scrollTop());
+            console.log($('.yellow').offset().top);
+            if ($(window).scrollTop() > $('.yellow').offset().top) {
+                $('.yellow').addClass('fixed')
+            } else {
+                $('.yellow').removeClass('fixed')
+            }
+        })
+    </script>
+</body>
+
+</html>

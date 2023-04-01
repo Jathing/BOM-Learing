@@ -52,22 +52,8 @@
     </ul>
     <script src="../../JQsource/jquery-3.5.1.js"></script>
     <script>
-      // 点击图片,图片切换 后面的li隐藏或显示 并且添加滑动效果 并且展开的时候图片是open.gif 折叠的时候是close.gif
-      $('img').click(function () {
-        // 1. 切换图片
-        // 1.1 获取当前图片的src属性
-        var src = $(this).attr('src');
-        // 1.2 判断图片的src属性
-        if (src == './images/close.gif') {
-          // 1.3 如果是close.gif, 切换成open.gif
-          $(this).attr('src', './images/open.gif');
-        } else {
-          // 1.4 如果是open.gif, 切换成close.gif
-          $(this).attr('src', './images/close.gif');
-        }
-        // 2. 隐藏或显示后面的li
-        $(this).parent().siblings().slideToggle();
-      });
+      // 点击图片的时候 对应的内容会展开 ,点击其他的时候 对应的内容会收起
+       
     </script>
   </body>
 </html>

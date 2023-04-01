@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+        border: 1px solid red;
+      }
+
+      .box2 {
+        width: 150px;
+        height: 150px;
+        border: 1px solid red;
+        margin: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .nav {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        border: 1px solid red;
+      }
+      .active {
+        position: fixed;
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box2">
+      <div class="nav">我是导航</div>
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script src="../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // 导航栏吸顶效果
+      // 1. 获取导航栏距离顶部的距离
+      // 2. 滚动事件
+      // 3. 判断滚动的距离是否大于导航栏距离顶部的距离
+      // 4. 如果大于，就吸顶
+      // 5. 如果小于，就取消吸顶
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > $('.box2').offset().top) {
+          $('.nav').addClass('active');
+        } else {
+          $('.nav').removeClass('active');
+        }
+      });
+    </script>
+  </body>
+</html>

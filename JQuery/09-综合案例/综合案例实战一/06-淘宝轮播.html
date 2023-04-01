@@ -57,6 +57,16 @@
     </div>
     <script src="../../JQsource/jquery-3.5.1.js"></script>
     <script>
+      // $('li').mousemove(function () {
+      //   // 获取li的文本内容
+      //   var liText = $(this).text();
+      //   //拼接图片的路径
+      //   var imgSrc = '../综合案例实战一/images/taobao/' + liText + '.jpg';
+      //   //将图片的路径赋值给img标签
+      //   $('img').attr('src', imgSrc);
+      //   //排他思想
+      //   $(this).addClass('active').siblings().removeClass('active');
+      // });
       // 自动轮播 鼠标移入停止 鼠标移出继续 鼠标移动到对应的li上，显示对应的图片,并且下次自动轮播从当前的li开始
       var index = 0;
       var timer = setInterval(function () {
@@ -72,7 +82,7 @@
         var imgSrc = '../综合案例实战一/images/taobao/' + liText + '.jpg';
         //将图片的路径赋值给img标签
         $('img').attr('src', imgSrc);
-      }, 1500);
+      }, 1000);
       //鼠标移入停止
       $('.box').mouseenter(function () {
         clearInterval(timer);
@@ -94,6 +104,7 @@
           $('img').attr('src', imgSrc);
         }, 1000);
       });
+
       //鼠标移动到对应的li上，显示对应的图片,并且下次自动轮播从当前的li开始
       $('li').mouseenter(function () {
         //获取li的文本内容

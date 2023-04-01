@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .content {
+        margin: 100px auto;
+
+        display: block;
+      }
+      #navTop {
+        width: 36px;
+        height: 65px;
+        background: url(./images/nav.jpg);
+        position: fixed;
+        right: 50px;
+        bottom: 50px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="content" src="./images/bg.jpg" alt="" />
+    <div id="navTop"></div>
+    <script src="../../jsc/jquery-3.5.1/jquery-3.5.1.js"></script>
+    <script>
+      // 滚动事件
+      $(window).scroll(function () {
+        if ($(window).scrollTop() >= $(window).height()) {
+          // 淡入
+          $('#navTop').fadeIn(500);
+        } else {
+          // 淡入
+          $('#navTop').fadeOut(500);
+        }
+      });
+
+      // 给火箭写点击事件
+      $('#navTop').click(function () {
+        // $(this).animate({ bottom: 300 }, 1000);
+        // $('html').animate({ scrollTop: 0 }, 1000);
+
+        // 火箭一边向上移动,一边淡出然后复位
+        $(this).animate({ bottom: 300 }, 1000).fadeOut(500).animate({ bottom: 50 }, 0);
+        $('html').animate({ scrollTop: 0 }, 1000); 
+      });
+    </script>
+  </body>
+</html>

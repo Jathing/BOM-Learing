@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        width: 900px;
+        height: 40px;
+        margin: 50px auto;
+        border-bottom: 3px solid skyblue;
+        position: relative;
+      }
+
+      ul li {
+        list-style-type: none;
+        float: left;
+        width: 100px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        /* position: absolute; */
+        transition: all 0.5s;
+      }
+      #sp {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-bottom: 3px solid red;
+        background-color: skyblue;
+        color: white;
+        /* z-index: -1; */
+        transition: all 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li>选项菜单1</li>
+      <li>选项菜单2</li>
+      <li>选项菜单3</li>
+      <li>选项菜单4</li>
+      <li>选项菜单5</li>
+      <li>选项菜单6</li>
+      <li>选项菜单7</li>
+      <li>选项菜单8</li>
+      <li>选项菜单9</li>
+      <li id="sp"></li>
+    </ul>
+  </body>
+
+  <script src="./JQsource/jquery-3.5.1.js"></script>
+  <script>
+    // 鼠标移入的时候，改变字体和背景颜色,并且li之间有滑动切换效果,通过改变span的位置来实现
+    $('li').mouseenter(function () {
+      // 获取当前li的索引
+      var index = $(this).index();
+      // console.log(index);
+      // 获取当前li的宽度
+      var width = $(this).width();
+      // console.log(width);
+      // 获取当前li的内容
+      var text = $(this).text();
+      // console.log(text);
+      // 设置span的宽度
+      $('#sp').width(width);
+      // 设置span的内容
+      $('#sp').text(text);
+      // 设置span的位置
+      $('#sp').css('left', index * width);
+    });
+    // 鼠标移出的时候，改变字体和背景颜色,并且li之间有滑动切换效果,通过改变span的位置来实现
+    $('li').mouseleave(function () {
+      // 获取当前li的索引
+      var index = $(this).index();
+      // console.log(index);
+      // 获取当前li的宽度
+      var width = $(this).width();
+      // console.log(width);
+      // 获取当前li的内容
+      var text = $(this).text();
+      // console.log(text);
+      // 设置span的宽度
+      $('#sp').width(width);
+      // 设置span的内容
+      $('#sp').text(text);
+      // 设置span的位置
+      $('#sp').css('left', index * width);
+    });
+  </script>
+</html>

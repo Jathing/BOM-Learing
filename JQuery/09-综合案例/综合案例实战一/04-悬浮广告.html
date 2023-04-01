@@ -1,1 +1,56 @@
-j
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .bg {
+        width: 998px;
+        height: 1677px;
+        margin: 0 auto;
+        background-image: url(./images/content.png);
+      }
+      .ad {
+        width: 150px;
+        height: 400px;
+        background-color: yellow;
+        position: fixed;
+        top: 0;
+        transition: top 0.5s ease-out;
+      }
+
+      .ad1 {
+        left: 0;
+      }
+      .ad2 {
+        background-color: pink;
+        right: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg"></div>
+    <div class="ad ad1"></div>
+    <div class="ad ad2"></div>
+    <script src="../../JQsource/jquery-3.5.1.js"></script>
+    <script>
+      // top = 卷上去的高度 + (视口高度 - 自身高度) / 2
+      function go() {
+        var top = $(window).scrollTop() + $(window).height() / 2 - $('.ad').height() / 2;
+        console.log(top);
+        // 属性名和属性值一样的一样 只写一个也可以
+        $('.ad').stop().animate({ top }, 1000);
+      }
+      go();
+      $(window).scroll(go);
+    </script>
+  </body>
+</html>

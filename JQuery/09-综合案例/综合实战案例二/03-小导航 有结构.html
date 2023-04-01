@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        vertical-align: middle;
+        border: 0 none;
+      }
+
+      body {
+        background-color: #f5f5f5;
+      }
+
+      .nav {
+        width: 752px;
+        height: 270px;
+        border: 1px solid #ccc;
+        margin: 100px auto 0;
+        padding-top: 10px;
+        padding-left: 10px;
+      }
+
+      .nav li {
+        list-style-type: none;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nav li a {
+        text-decoration: none;
+      }
+
+      .nav li span {
+        width: 100%;
+        height: 24px;
+        line-height: 24px;
+        position: absolute;
+        left: 0;
+        /*bottom:0;*/
+        bottom: -24px;
+        color: white;
+        font-size: 14px;
+        background-color: #000;
+        opacity: 0.5;
+      }
+
+      .nav li p {
+        width: 100%;
+        height: 24px;
+        line-height: 24px;
+        position: absolute;
+        left: 0;
+        /* bottom:0; */
+        /*显示的状态*/
+        bottom: -24px;
+        /*隐藏的状态*/
+        color: white;
+        font-size: 14px;
+        background-color: rgba(0, 0, 0, 0.1);
+    /* background: url('images/69/bg.png') no-repeat 0 0px; */
+        text-indent: 26px;
+      }
+    </style>
+    <!-- <script src="../js/jquery-1.11.3.js"></script> -->
+  </head>
+
+  <body>
+    <ul class="nav">
+      <li>
+        <a href="#">
+          <img src="./images/nav/01.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <!-- <img src=".\\images\\nav\\02.JPG" alt="" /> -->
+          <img src="./images/nav/02.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="./images/nav/03.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="./images/nav/04.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="./images/nav/05.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="./images/nav/06.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="./images/nav/07.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="./images/nav/08.JPG" alt="" />
+          <span></span>
+          <p>百度一下，会死吗？</p>
+        </a>
+      </li>
+    </ul>
+  </body>
+  <script src="./JQsource/jquery-3.5.1.js"></script>
+  <script>
+    $(function () {
+      $('.nav li').hover(
+        function () {
+          $(this).find('span').stop().animate({ bottom: 0 }, 500);
+          $(this).find('p').stop().animate({ bottom: 0 }, 500);
+        },
+        function () {
+          $(this).find('span').stop().animate({ bottom: -24 }, 500);
+          $(this).find('p').stop().animate({ bottom: -24 }, 500);
+        }
+      );
+    });
+  </script>
+</html>
