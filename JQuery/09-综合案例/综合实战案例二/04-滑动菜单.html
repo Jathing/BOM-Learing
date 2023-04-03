@@ -1,77 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
+<keybindings.json!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+        }
 
-      ul {
-        width: 900px;
-        height: 40px;
-        margin: 50px auto;
-        border-bottom: 3px solid skyblue;
-        position: relative;
-        display: flex;
-      }
+        ul {
+          width: 900px;
+          height: 40px;
+          margin: 50px auto;
+          border-bottom: 3px solid skyblue;
+          position: relative;
+          display: flex;
+        }
 
-      ul li {
-        list-style-type: none;
+        ul li {
+          list-style-type: none;
 
-        width: 100px;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        /* position: absolute; */
-        transition: all 0.5s;
-      }
-      #sp {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        border-bottom: 3px solid red;
-        background-color: skyblue;
-        color: white;
-        /* z-index: -1; */
-        transition: 0.3s;
-      }
-    </style>
-  </head>
-
-  <body>
-    <ul>
-      <li>选项菜单1</li>
-      <li>选项菜单2</li>
-      <li>选项菜单3</li>
-      <li>选项菜单4</li>
-      <li>选项菜单5</li>
-      <li>选项菜单6</li>
-      <li>选项菜单7</li>
-      <li>选项菜单8</li>
-      <li>选项菜单9</li>
-      <li id="sp">选项菜单1</li>
-    </ul>
-    <script src="./JQsource/jquery-3.5.1.js"></script>
-    <script>
-      $('ul li').mouseover(function () {
-        $('#sp')
-          .stop()
-          .animate(
-            {
-              left: $(this).index() * 100,
-            },
-            3
-          );
-      });
-    </script>
-  </body>
-</html>
+          width: 100px;
+          text-align: center;
+          line-height: 40px;
+          cursor: pointer;
+          /* position: absolute; */
+          /* transition: all 0.5s; */
+        }
+        #sp {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          border-bottom: 3px solid red;
+          background-color: skyblue;
+          color: white;
+          /* z-index: -1; */
+          /* transition: 0.3s; */
+        }
+      </style>
+    </head>
+    <body>
+      <ul>
+        <li>选项菜单1</li>
+        <li>选项菜单2</li>
+        <li>选项菜单3</li>
+        <li>选项菜单4</li>
+        <li>选项菜单5</li>
+        <li>选项菜单6</li>
+        <li>选项菜单7</li>
+        <li>选项菜单8</li>
+        <li>选项菜单9</li>
+        <li id="sp">选项菜单1</li>
+      </ul>
+      <script src="./JQsource/jquery-3.5.1.js"></script>
+      <script>
+        $('ul li').mouseover(function () {
+          $('#sp')
+            .stop()
+            .animate(
+              {
+                left: $(this).index() * 100,
+              },
+              300
+            )
+            .text($(this).text());
+        });
+      </script>
+    </body>
+  </html>
+</keybindings.json!DOCTYPE>

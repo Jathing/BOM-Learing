@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="main">
+        <h2 id="title" class="title">我的购物车</h2>
+        <!-- banner区域 -->
+        <div class="content" id="content">
+            <ul class="item_list">
+                <!-- 多选框 -->
+                <li>
+                    <input type="checkbox" id="check_all" class="check_all">全选
+                </li>
+                <li class="item_name">
+                    商品名称
+                </li>
+                <li>
+                    单价
+                </li>
+                <li>
+                    数量
+                </li>
+                <li>
+                    小计
+                </li>
+                <li>
+                    操作
+                </li>
+            </ul>
+            <ul class="item">
+                <li>
+                    <!-- 单选1 -->
+                    <input type="checkbox" name="" id="item_option" class="item_option">
+                </li>
+                <li class="item_name">
+                    <img src="../img/cart/pro_11.jpg" alt="">
+                    佳能（Canon）EOS 5D 单反套机
+                </li>
+                <!-- 商品单价 -->
+                <li>
+                    <p class="pro_price" id="pro_price">24998元</p>
+                </li>
+                <!--小计： 数量和价格 -->
+                <li class="buy_num">
+                    <!-- 购物车加减按钮 -->
+                    <div>
+                        <input type="button" value="-" class="pnum_reduce">
+                        <input type="text" value="1">
+                        <input type="button" value="+" class="pnum_add">
+                    </div>
+                </li>
+                <li>
+                    <!-- 商品总价小计： -->
+                    <p class="total_price" id="total_price">24998元</p>
+                </li>
+                <!-- 删除按钮 -->
+                <li>
+                    <a href="javascript:;" class="pro_delete" id="pro_delete">X</a>
+                </li>
+            </ul>
+            <ul class="item">
+                <li>
+                    <!-- 单选2 -->
+                    <input type="checkbox" name="" id="item_option" class="item_option">
+                </li>
+                <li class="item_name">
+                    <img src="../img/cart/hp_08.jpg" alt="">
+                    惠普（HP）薄锐ENVY 13.3英寸超轻薄笔记本
+                </li>
+                <li>
+                    <p class="pro_price" id="pro_price">5979元</p>
+                </li>
+                <li class="buy_num">
+                    <div>
+                        <input type="button" value="-" class="pnum_reduce">
+                        <input type="text" value="1">
+                        <input type="button" value="+" class="pnum_add">
+                    </div>
+                </li>
+                <li>
+                    <p class="total_price" id="total_price">5979元</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="pro_delete" id="pro_delete">X</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 底部结算区域 -->
+        <div class="footer" id="footer">
+            <!-- 商品数量 -->
+            <div class="total_num">
+                已选<b>0</b>件商品
+            </div>
+            <button class="settlement">
+                确认结算
+            </button>
+            <!-- 金额数量 -->
+            <div class="sum_price">
+                合计：<b>0</b>元
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../jquery-3.5.1/jquery-3.5.1.js"></script>
+<script src="./index.js"></script>
+</html>
